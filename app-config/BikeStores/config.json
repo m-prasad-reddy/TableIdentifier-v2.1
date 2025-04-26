@@ -1,0 +1,4 @@
+{
+  "db_name": "BikeStores",
+  "excluded_schemas": ["information_schema", "sys", "dbo", "pg_catalog"]
+}

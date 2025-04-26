@@ -1,0 +1,1066 @@
+console log:
+
+app.log:
+
+2025-04-25 21:36:32 - analyzer - DEBUG - Initialized DatabaseAnalyzer with SpaCy
+2025-04-25 21:36:33 - interface - DEBUG - Initialized DatabaseAnalyzerCLI
+2025-04-25 21:36:33 - interface - INFO - Starting Database Schema Analyzer
+2025-04-25 21:37:16 - config - DEBUG - Initialized DBConfigManager
+2025-04-25 21:37:16 - config - DEBUG - Loaded configurations from app-config/database_configurations.json
+2025-04-25 21:37:16 - analyzer - DEBUG - Loaded 3 valid configurations
+2025-04-25 21:37:18 - analyzer - DEBUG - Set config: BikeStores
+2025-04-25 21:37:18 - interface - DEBUG - Selected configuration: BikeStores
+2025-04-25 21:37:18 - connection - DEBUG - Initialized DatabaseConnection
+2025-04-25 21:37:18 - connection - INFO - Connected to database: BikeStores with driver ODBC Driver 17 for SQL Server
+2025-04-25 21:37:18 - analyzer - DEBUG - Initializing managers for BikeStores
+2025-04-25 21:37:18 - schema - DEBUG - Initialized SchemaManager for BikeStores
+2025-04-25 21:37:18 - schema - INFO - SchemaManager version: 2025-04-25 with enhanced database support
+2025-04-25 21:37:18 - schema - DEBUG - Detected database type: sqlserver, version: microsoft sql server 2022 (rtm-gdr) (kb5046861) - 16.0.1135.2 (x64) 
+	oct 18 2024 15:31:58 
+	copyright (c) 2022 microsoft corporation
+	developer edition (64-bit) on windows 10 pro for workstations 10.0 <x64> (build 19045: ) (hypervisor)
+
+2025-04-25 21:37:18 - schema - DEBUG - Executing SQL Server schema mtime query: 
+                    SELECT MAX(last_update)
+                    FROM (
+                        SELECT MAX(create_date) as last_update
+                        FROM sys.objects
+                        WHERE type = 'U' AND schema_name(schema_id) NOT IN ('information_schema','sys','dbo','pg_catalog')
+                        UNION
+                        SELECT MAX(modify_date)
+                        FROM sys.objects
+                        WHERE type = 'U' AND schema_name(schema_id) NOT IN ('information_schema','sys','dbo','pg_catalog')
+                    ) AS t
+                
+2025-04-25 21:37:18 - schema - DEBUG - Schema mtime retrieved: 1744127195.583
+2025-04-25 21:37:18 - schema - DEBUG - Latest schema change: 1744127195.583, Cache mtime: 1745529181.8116755
+2025-04-25 21:37:18 - analyzer - DEBUG - Loading schema from cache
+2025-04-25 21:37:18 - schema - DEBUG - Schema validation completed
+2025-04-25 21:37:18 - schema - DEBUG - Loaded schema from schema_cache\BikeStores\schema.json
+2025-04-25 21:37:20 - patterns - DEBUG - Loaded patterns from Redis for BikeStores
+2025-04-25 21:37:20 - patterns - DEBUG - Loaded entities from Redis for BikeStores
+2025-04-25 21:37:20 - patterns - DEBUG - Initialized PatternManager for BikeStores with 11 patterns
+2025-04-25 21:37:22 - nlp_pipeline - DEBUG - Added patterns for table 'production.categories'
+2025-04-25 21:37:22 - nlp_pipeline - DEBUG - Added patterns for table 'production.brands'
+2025-04-25 21:37:22 - nlp_pipeline - DEBUG - Added patterns for table 'production.products'
+2025-04-25 21:37:22 - nlp_pipeline - DEBUG - Added patterns for table 'production.stocks'
+2025-04-25 21:37:22 - nlp_pipeline - DEBUG - Added patterns for table 'sales.customers'
+2025-04-25 21:37:22 - nlp_pipeline - DEBUG - Added patterns for table 'sales.stores'
+2025-04-25 21:37:22 - nlp_pipeline - DEBUG - Added patterns for table 'sales.staffs'
+2025-04-25 21:37:22 - nlp_pipeline - DEBUG - Added patterns for table 'sales.orders'
+2025-04-25 21:37:23 - nlp_pipeline - DEBUG - Added patterns for table 'sales.order_items'
+2025-04-25 21:37:23 - nlp_pipeline - DEBUG - Added patterns for table 'hr.candidates'
+2025-04-25 21:37:23 - nlp_pipeline - DEBUG - Added patterns for table 'hr.employees'
+2025-04-25 21:37:23 - nlp_pipeline - DEBUG - Patterns loaded
+2025-04-25 21:37:23 - nlp_pipeline - DEBUG - Initialized NLPPipeline
+2025-04-25 21:37:24 - name_match_manager - DEBUG - Loaded 21 valid synonyms from app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:37:24 - name_match_manager - DEBUG - No matches in Redis for BikeStores, initializing empty
+2025-04-25 21:37:24 - name_match_manager - DEBUG - Initialized NameMatchManager for BikeStores
+2025-04-25 21:37:25 - table_identifier - DEBUG - Loaded weights from Redis for BikeStores
+2025-04-25 21:37:25 - table_identifier - DEBUG - Loaded 5 training records
+2025-04-25 21:37:25 - table_identifier - DEBUG - Initialized TableIdentifier
+2025-04-25 21:37:26 - query_processor - DEBUG - Loaded stopwords for BikeStores
+2025-04-25 21:37:26 - query_processor - DEBUG - Initialized QueryProcessor
+2025-04-25 21:37:26 - analyzer - DEBUG - Managers initialized successfully
+2025-04-25 21:37:26 - analyzer - INFO - Connected to BikeStores
+2025-04-25 21:37:26 - interface - INFO - Successfully connected to database
+2025-04-25 21:38:59 - interface - DEBUG - Validating query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES
+2025-04-25 21:38:59 - query_processor - DEBUG - Processing query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES
+2025-04-25 21:38:59 - query_processor - DEBUG - Preprocessing query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES
+2025-04-25 21:38:59 - query_processor - DEBUG - Preprocessed query: product stock availability store
+2025-04-25 21:38:59 - nlp_pipeline - DEBUG - Processing query: product stock availability store
+2025-04-25 21:38:59 - nlp_pipeline - DEBUG - Preprocessed query: product production.stocks sales.order_items sales.stores sales.staffs
+2025-04-25 21:38:59 - table_identifier - DEBUG - Identifying tables for query: product production.stocks sales.order_items sales.stores sales.staffs
+2025-04-25 21:38:59 - patterns - DEBUG - Matching patterns for query: product production.stocks sales.order_items sales.stores sales.staffs
+2025-04-25 21:38:59 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items']
+2025-04-25 21:38:59 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:38:59 - name_match_manager - DEBUG - Matching query: product production.stocks sales.order_items sales.stores sales.staffs
+2025-04-25 21:38:59 - name_match_manager - DEBUG - Name matches for query 'product production.stocks sales.order_items sales.stores sales.staffs': {}
+2025-04-25 21:39:02 - table_identifier - DEBUG - Name matched tables: [], confidence: 0.0
+2025-04-25 21:39:02 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:39:02 - table_identifier - DEBUG - Final tables: ['sales.stores', 'sales.staffs', 'production.stocks', 'hr.candidates', 'production.products'], confidence: 0.8386363636363635
+2025-04-25 21:39:02 - query_processor - DEBUG - Identified tables: ['sales.stores', 'sales.staffs', 'production.stocks', 'hr.candidates', 'production.products'], confidence: 0.8386363636363635
+2025-04-25 21:39:02 - analyzer - DEBUG - Query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES, Tables: ['sales.stores', 'sales.staffs', 'production.stocks', 'hr.candidates', 'production.products'], Confidence: 0.8386363636363635
+2025-04-25 21:39:02 - interface - INFO - Suggested tables for query 'SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES': ['sales.stores', 'sales.staffs', 'production.stocks', 'hr.candidates', 'production.products'], confidence: 0.8386363636363635
+2025-04-25 21:39:02 - interface - DEBUG - Handling feedback for query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES
+2025-04-25 21:40:19 - interface - INFO - User rejected tables for query 'SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES': ['sales.stores', 'sales.staffs', 'production.stocks', 'hr.candidates', 'production.products']
+2025-04-25 21:40:19 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:40:23 - interface - DEBUG - Selected manual tables: ['production.products', 'production.stocks', 'sales.stores']
+2025-04-25 21:40:23 - interface - INFO - Updated feedback with tables: ['production.products', 'production.stocks', 'sales.stores']
+2025-04-25 21:40:23 - analyzer - DEBUG - Validated tables: Valid=['production.products', 'production.stocks', 'sales.stores'], Invalid=[]
+2025-04-25 21:40:23 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:40:23 - table_identifier - DEBUG - Increased weight for production.products to 1.15
+2025-04-25 21:40:23 - table_identifier - DEBUG - Increased weight for production.stocks to 1.15
+2025-04-25 21:40:23 - table_identifier - DEBUG - Increased weight for sales.stores to 1.6
+2025-04-25 21:40:23 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.7224999999999999
+2025-04-25 21:40:23 - table_identifier - DEBUG - Decreased weight for sales.staffs to 1.105
+2025-04-25 21:40:23 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.7224999999999999
+2025-04-25 21:40:23 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.7224999999999999
+2025-04-25 21:40:23 - table_identifier - DEBUG - Decreased weight for production.brands to 0.7224999999999999
+2025-04-25 21:40:23 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.7224999999999999
+2025-04-25 21:40:23 - table_identifier - DEBUG - Decreased weight for production.categories to 0.7224999999999999
+2025-04-25 21:40:23 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.7224999999999999
+2025-04-25 21:40:23 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:40:23 - table_identifier - DEBUG - Updating name matches for query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Updating synonyms for query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES, tables: ['production.products', 'production.stocks', 'sales.stores']
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Added synonym 'product' for production.products
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Added synonym 'stock' for production.products
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Added synonym 'availability' for production.products
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Added synonym 'store' for production.products
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Added synonym 'product' for production.stocks
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Added synonym 'stock' for production.stocks
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Added synonym 'availability' for production.stocks
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Added synonym 'store' for production.stocks
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Added synonym 'product' for sales.stores
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Added synonym 'stock' for sales.stores
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Added synonym 'availability' for sales.stores
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Added synonym 'store' for sales.stores
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:40:23 - name_match_manager - DEBUG - Updated synonyms for query: show me products stock availability at all stores, terms: ['product', 'stock', 'availability', 'store'], tables: ['production.products', 'production.stocks', 'sales.stores']
+2025-04-25 21:40:23 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:40:23 - patterns - DEBUG - Added pattern [{'LOWER': 'product'}] for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added pattern [{'LOWER': 'stock'}] for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added pattern [{'LOWER': 'availability'}] for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added pattern [{'LOWER': 'store'}] for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'product' to intent 'name' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'stock' to intent 'name' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'availability' to intent 'name' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'product' to intent 'details' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'stock' to intent 'details' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'availability' to intent 'details' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'product' to intent 'stock' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'availability' to intent 'stock' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'product' to intent 'category' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'stock' to intent 'category' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'availability' to intent 'category' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'product' to intent 'order' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'stock' to intent 'order' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'availability' to intent 'order' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'product' to intent 'brand' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'stock' to intent 'brand' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added keyword 'availability' to intent 'brand' for production.products
+2025-04-25 21:40:23 - patterns - DEBUG - Added pattern [{'LOWER': 'product'}] for production.stocks
+2025-04-25 21:40:23 - patterns - DEBUG - Added pattern [{'LOWER': 'stock'}] for production.stocks
+2025-04-25 21:40:23 - patterns - DEBUG - Added pattern [{'LOWER': 'availability'}] for production.stocks
+2025-04-25 21:40:23 - patterns - DEBUG - Added pattern [{'LOWER': 'store'}] for production.stocks
+2025-04-25 21:40:23 - patterns - DEBUG - Added pattern [{'LOWER': 'product'}] for sales.stores
+2025-04-25 21:40:23 - patterns - DEBUG - Added pattern [{'LOWER': 'stock'}] for sales.stores
+2025-04-25 21:40:23 - patterns - DEBUG - Added pattern [{'LOWER': 'availability'}] for sales.stores
+2025-04-25 21:40:23 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:40:23 - analyzer - INFO - Updated feedback for query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES
+2025-04-25 21:40:38 - interface - DEBUG - Validating query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS
+2025-04-25 21:40:38 - query_processor - DEBUG - Processing query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS
+2025-04-25 21:40:38 - query_processor - DEBUG - Preprocessing query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS
+2025-04-25 21:40:38 - query_processor - DEBUG - Preprocessed query: product stock availability store store detail
+2025-04-25 21:40:38 - nlp_pipeline - DEBUG - Processing query: product stock availability store store detail
+2025-04-25 21:40:38 - nlp_pipeline - DEBUG - Preprocessed query: product production.stocks sales.order_items sales.stores sales.staffs sales.stores sales.staffs detail
+2025-04-25 21:40:38 - table_identifier - DEBUG - Identifying tables for query: product production.stocks sales.order_items sales.stores sales.staffs sales.stores sales.staffs detail
+2025-04-25 21:40:38 - patterns - DEBUG - Matching patterns for query: product production.stocks sales.order_items sales.stores sales.staffs sales.stores sales.staffs detail
+2025-04-25 21:40:38 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items']
+2025-04-25 21:40:38 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:40:38 - name_match_manager - DEBUG - Matching query: product production.stocks sales.order_items sales.stores sales.staffs sales.stores sales.staffs detail
+2025-04-25 21:40:39 - name_match_manager - DEBUG - Name matches for query 'product production.stocks sales.order_items sales.stores sales.staffs sales.stores sales.staffs detail': {'production.products': 3.6, 'production.stocks': 3.6, 'sales.stores': 3.6}
+2025-04-25 21:40:39 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores'], confidence: 3.6
+2025-04-25 21:40:39 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:40:39 - table_identifier - DEBUG - Final tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'hr.candidates'], confidence: 3.293181818181819
+2025-04-25 21:40:39 - query_processor - DEBUG - Identified tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'hr.candidates'], confidence: 3.293181818181819
+2025-04-25 21:40:39 - analyzer - DEBUG - Query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS, Tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'hr.candidates'], Confidence: 3.293181818181819
+2025-04-25 21:40:39 - interface - INFO - Suggested tables for query 'SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS': ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'hr.candidates'], confidence: 3.293181818181819
+2025-04-25 21:40:39 - interface - DEBUG - Handling feedback for query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS
+2025-04-25 21:40:45 - interface - INFO - User rejected tables for query 'SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS': ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'hr.candidates']
+2025-04-25 21:40:45 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:41:01 - interface - WARNING - Invalid manual table selection
+2025-04-25 21:45:57 - interface - DEBUG - Validating query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS
+2025-04-25 21:45:57 - query_processor - DEBUG - Processing query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS
+2025-04-25 21:45:57 - query_processor - DEBUG - Preprocessing query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS
+2025-04-25 21:45:57 - query_processor - DEBUG - Preprocessed query: product stock availability store store detail
+2025-04-25 21:45:57 - nlp_pipeline - DEBUG - Processing query: product stock availability store store detail
+2025-04-25 21:45:57 - nlp_pipeline - DEBUG - Preprocessed query: product production.stocks sales.order_items sales.stores sales.staffs sales.stores sales.staffs detail
+2025-04-25 21:45:57 - table_identifier - DEBUG - Identifying tables for query: product production.stocks sales.order_items sales.stores sales.staffs sales.stores sales.staffs detail
+2025-04-25 21:45:57 - patterns - DEBUG - Matching patterns for query: product production.stocks sales.order_items sales.stores sales.staffs sales.stores sales.staffs detail
+2025-04-25 21:45:57 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items']
+2025-04-25 21:45:57 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:45:57 - name_match_manager - DEBUG - Matching query: product production.stocks sales.order_items sales.stores sales.staffs sales.stores sales.staffs detail
+2025-04-25 21:45:58 - name_match_manager - DEBUG - Name matches for query 'product production.stocks sales.order_items sales.stores sales.staffs sales.stores sales.staffs detail': {'production.products': 3.6, 'production.stocks': 3.6, 'sales.stores': 3.6}
+2025-04-25 21:45:58 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores'], confidence: 3.6
+2025-04-25 21:45:58 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:45:58 - table_identifier - DEBUG - Final tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'hr.candidates'], confidence: 3.293181818181819
+2025-04-25 21:45:58 - query_processor - DEBUG - Identified tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'hr.candidates'], confidence: 3.293181818181819
+2025-04-25 21:45:58 - analyzer - DEBUG - Query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS, Tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'hr.candidates'], Confidence: 3.293181818181819
+2025-04-25 21:45:58 - interface - INFO - Suggested tables for query 'SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS': ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'hr.candidates'], confidence: 3.293181818181819
+2025-04-25 21:45:58 - interface - DEBUG - Handling feedback for query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS
+2025-04-25 21:46:06 - interface - INFO - User rejected tables for query 'SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS': ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'hr.candidates']
+2025-04-25 21:46:06 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:46:17 - interface - DEBUG - Selected manual tables: ['production.products', 'production.stocks', 'sales.stores']
+2025-04-25 21:46:17 - interface - INFO - Updated feedback with tables: ['production.products', 'production.stocks', 'sales.stores']
+2025-04-25 21:46:17 - analyzer - DEBUG - Validated tables: Valid=['production.products', 'production.stocks', 'sales.stores'], Invalid=[]
+2025-04-25 21:46:17 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:46:17 - table_identifier - DEBUG - Increased weight for production.products to 1.45
+2025-04-25 21:46:17 - table_identifier - DEBUG - Increased weight for production.stocks to 1.45
+2025-04-25 21:46:17 - table_identifier - DEBUG - Increased weight for sales.stores to 1.9000000000000001
+2025-04-25 21:46:17 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.6141249999999999
+2025-04-25 21:46:17 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.9392499999999999
+2025-04-25 21:46:17 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.6141249999999999
+2025-04-25 21:46:17 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.6141249999999999
+2025-04-25 21:46:17 - table_identifier - DEBUG - Decreased weight for production.brands to 0.6141249999999999
+2025-04-25 21:46:17 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.6141249999999999
+2025-04-25 21:46:17 - table_identifier - DEBUG - Decreased weight for production.categories to 0.6141249999999999
+2025-04-25 21:46:17 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.6141249999999999
+2025-04-25 21:46:17 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:46:17 - table_identifier - DEBUG - Updating name matches for query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS
+2025-04-25 21:46:17 - name_match_manager - DEBUG - Updating synonyms for query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS, tables: ['production.products', 'production.stocks', 'sales.stores']
+2025-04-25 21:46:17 - name_match_manager - DEBUG - Added synonym 'detail' for production.products
+2025-04-25 21:46:17 - name_match_manager - DEBUG - Added synonym 'detail' for production.stocks
+2025-04-25 21:46:17 - name_match_manager - DEBUG - Added synonym 'detail' for sales.stores
+2025-04-25 21:46:17 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:46:17 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:46:17 - name_match_manager - DEBUG - Updated synonyms for query: show me products stock availability at all stores with store details, terms: ['product', 'stock', 'availability', 'store', 'store', 'detail'], tables: ['production.products', 'production.stocks', 'sales.stores']
+2025-04-25 21:46:17 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:46:17 - patterns - DEBUG - Added pattern [{'LOWER': 'detail'}] for production.products
+2025-04-25 21:46:17 - patterns - DEBUG - Added keyword 'detail' to intent 'name' for production.products
+2025-04-25 21:46:17 - patterns - DEBUG - Added keyword 'detail' to intent 'details' for production.products
+2025-04-25 21:46:17 - patterns - DEBUG - Added keyword 'detail' to intent 'stock' for production.products
+2025-04-25 21:46:17 - patterns - DEBUG - Added keyword 'detail' to intent 'category' for production.products
+2025-04-25 21:46:17 - patterns - DEBUG - Added keyword 'detail' to intent 'order' for production.products
+2025-04-25 21:46:17 - patterns - DEBUG - Added keyword 'detail' to intent 'brand' for production.products
+2025-04-25 21:46:17 - patterns - DEBUG - Added pattern [{'LOWER': 'detail'}] for production.stocks
+2025-04-25 21:46:17 - patterns - DEBUG - Added pattern [{'LOWER': 'detail'}] for sales.stores
+2025-04-25 21:46:17 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:46:17 - analyzer - INFO - Updated feedback for query: SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS
+2025-04-25 21:46:31 - interface - DEBUG - Validating query: Show me customer names
+2025-04-25 21:46:31 - query_processor - DEBUG - Processing query: Show me customer names
+2025-04-25 21:46:31 - query_processor - DEBUG - Preprocessing query: Show me customer names
+2025-04-25 21:46:31 - query_processor - DEBUG - Preprocessed query: customer name
+2025-04-25 21:46:31 - nlp_pipeline - DEBUG - Processing query: customer name
+2025-04-25 21:46:31 - nlp_pipeline - DEBUG - Preprocessed query: sales.customers sales.staffs
+2025-04-25 21:46:31 - table_identifier - DEBUG - Identifying tables for query: sales.customers sales.staffs
+2025-04-25 21:46:31 - patterns - DEBUG - Matching patterns for query: sales.customers sales.staffs
+2025-04-25 21:46:31 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'sales.orders', 'sales.customers', 'sales.order_items']
+2025-04-25 21:46:31 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'sales.orders', 'sales.customers', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:46:31 - name_match_manager - DEBUG - Matching query: sales.customers sales.staffs
+2025-04-25 21:46:31 - name_match_manager - DEBUG - Name matches for query 'sales.customers sales.staffs': {'production.products': 4.5, 'production.stocks': 4.5, 'sales.stores': 4.5}
+2025-04-25 21:46:31 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores'], confidence: 4.5
+2025-04-25 21:46:31 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:46:31 - table_identifier - DEBUG - Final tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'sales.orders'], confidence: 4.5
+2025-04-25 21:46:31 - query_processor - DEBUG - Identified tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'sales.orders'], confidence: 4.5
+2025-04-25 21:46:31 - analyzer - DEBUG - Query: Show me customer names, Tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'sales.orders'], Confidence: 4.5
+2025-04-25 21:46:31 - interface - INFO - Suggested tables for query 'Show me customer names': ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'sales.orders'], confidence: 4.5
+2025-04-25 21:46:31 - interface - DEBUG - Handling feedback for query: Show me customer names
+2025-04-25 21:46:49 - interface - INFO - User rejected tables for query 'Show me customer names': ['sales.stores', 'production.stocks', 'production.products', 'sales.staffs', 'sales.orders']
+2025-04-25 21:46:49 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:49:16 - interface - DEBUG - Selected manual tables: ['sales.customers']
+2025-04-25 21:49:16 - interface - INFO - Updated feedback with tables: ['sales.customers']
+2025-04-25 21:49:16 - analyzer - DEBUG - Validated tables: Valid=['sales.customers'], Invalid=[]
+2025-04-25 21:49:18 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:49:18 - table_identifier - DEBUG - Increased weight for sales.customers to 0.9141249999999999
+2025-04-25 21:49:18 - table_identifier - DEBUG - Decreased weight for sales.stores to 1.615
+2025-04-25 21:49:18 - table_identifier - DEBUG - Decreased weight for production.stocks to 1.2325
+2025-04-25 21:49:18 - table_identifier - DEBUG - Decreased weight for production.products to 1.2325
+2025-04-25 21:49:18 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5220062499999999
+2025-04-25 21:49:18 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.7983624999999999
+2025-04-25 21:49:18 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.5220062499999999
+2025-04-25 21:49:18 - table_identifier - DEBUG - Decreased weight for production.brands to 0.5220062499999999
+2025-04-25 21:49:18 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5220062499999999
+2025-04-25 21:49:18 - table_identifier - DEBUG - Decreased weight for production.categories to 0.5220062499999999
+2025-04-25 21:49:18 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5220062499999999
+2025-04-25 21:49:18 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:49:18 - table_identifier - DEBUG - Updating name matches for query: Show me customer names
+2025-04-25 21:49:18 - name_match_manager - DEBUG - Updating synonyms for query: Show me customer names, tables: ['sales.customers']
+2025-04-25 21:49:18 - name_match_manager - DEBUG - Added synonym 'customer' for sales.customers
+2025-04-25 21:49:18 - name_match_manager - DEBUG - Added synonym 'name' for sales.customers
+2025-04-25 21:49:18 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:49:18 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:49:18 - name_match_manager - DEBUG - Updated synonyms for query: show me customer names, terms: ['customer', 'name'], tables: ['sales.customers']
+2025-04-25 21:49:18 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:49:18 - patterns - DEBUG - Added pattern [{'LOWER': 'customer'}] for sales.customers
+2025-04-25 21:49:18 - patterns - DEBUG - Added pattern [{'LOWER': 'name'}] for sales.customers
+2025-04-25 21:49:18 - patterns - DEBUG - Added keyword 'customer' to intent 'name' for sales.customers
+2025-04-25 21:49:18 - patterns - DEBUG - Added keyword 'customer' to intent 'details' for sales.customers
+2025-04-25 21:49:18 - patterns - DEBUG - Added keyword 'customer' to intent 'stock' for sales.customers
+2025-04-25 21:49:18 - patterns - DEBUG - Added keyword 'name' to intent 'stock' for sales.customers
+2025-04-25 21:49:18 - patterns - DEBUG - Added keyword 'customer' to intent 'category' for sales.customers
+2025-04-25 21:49:18 - patterns - DEBUG - Added keyword 'name' to intent 'category' for sales.customers
+2025-04-25 21:49:18 - patterns - DEBUG - Added keyword 'customer' to intent 'order' for sales.customers
+2025-04-25 21:49:18 - patterns - DEBUG - Added keyword 'name' to intent 'order' for sales.customers
+2025-04-25 21:49:18 - patterns - DEBUG - Added keyword 'customer' to intent 'brand' for sales.customers
+2025-04-25 21:49:18 - patterns - DEBUG - Added keyword 'name' to intent 'brand' for sales.customers
+2025-04-25 21:49:19 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:49:19 - analyzer - INFO - Updated feedback for query: Show me customer names
+2025-04-25 21:49:31 - interface - DEBUG - Validating query: what production categories are available
+2025-04-25 21:49:31 - query_processor - DEBUG - Processing query: what production categories are available
+2025-04-25 21:49:31 - query_processor - DEBUG - Preprocessing query: what production categories are available
+2025-04-25 21:49:31 - query_processor - DEBUG - Preprocessed query: production category available
+2025-04-25 21:49:31 - nlp_pipeline - DEBUG - Processing query: production category available
+2025-04-25 21:49:31 - nlp_pipeline - DEBUG - Preprocessed query: production.categories production.brands production.products production.stocks category available
+2025-04-25 21:49:31 - table_identifier - DEBUG - Identifying tables for query: production.categories production.brands production.products production.stocks category available
+2025-04-25 21:49:31 - patterns - DEBUG - Matching patterns for query: production.categories production.brands production.products production.stocks category available
+2025-04-25 21:49:31 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items']
+2025-04-25 21:49:31 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:49:31 - name_match_manager - DEBUG - Matching query: production.categories production.brands production.products production.stocks category available
+2025-04-25 21:49:32 - name_match_manager - DEBUG - Name matches for query 'production.categories production.brands production.products production.stocks category available': {'production.products': 4.5, 'production.stocks': 4.5, 'sales.stores': 4.5, 'sales.customers': 1.8}
+2025-04-25 21:49:32 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores', 'sales.customers'], confidence: 4.5
+2025-04-25 21:49:32 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:49:32 - table_identifier - DEBUG - Final tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.customers', 'sales.staffs'], confidence: 3.6509420454545447
+2025-04-25 21:49:32 - query_processor - DEBUG - Identified tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.customers', 'sales.staffs'], confidence: 3.6509420454545447
+2025-04-25 21:49:32 - analyzer - DEBUG - Query: what production categories are available, Tables: ['sales.stores', 'production.stocks', 'production.products', 'sales.customers', 'sales.staffs'], Confidence: 3.6509420454545447
+2025-04-25 21:49:32 - interface - INFO - Suggested tables for query 'what production categories are available': ['sales.stores', 'production.stocks', 'production.products', 'sales.customers', 'sales.staffs'], confidence: 3.6509420454545447
+2025-04-25 21:49:32 - interface - DEBUG - Handling feedback for query: what production categories are available
+2025-04-25 21:49:41 - interface - INFO - User rejected tables for query 'what production categories are available': ['sales.stores', 'production.stocks', 'production.products', 'sales.customers', 'sales.staffs']
+2025-04-25 21:49:41 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:49:43 - interface - DEBUG - Selected manual tables: ['production.categories']
+2025-04-25 21:49:43 - interface - INFO - Updated feedback with tables: ['production.categories']
+2025-04-25 21:49:43 - analyzer - DEBUG - Validated tables: Valid=['production.categories'], Invalid=[]
+2025-04-25 21:49:43 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:49:43 - table_identifier - DEBUG - Increased weight for production.categories to 0.8220062499999998
+2025-04-25 21:49:43 - table_identifier - DEBUG - Decreased weight for sales.stores to 1.37275
+2025-04-25 21:49:43 - table_identifier - DEBUG - Decreased weight for production.stocks to 1.0476249999999998
+2025-04-25 21:49:43 - table_identifier - DEBUG - Decreased weight for production.products to 1.0476249999999998
+2025-04-25 21:49:43 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5
+2025-04-25 21:49:43 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.6786081249999999
+2025-04-25 21:49:43 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.5
+2025-04-25 21:49:43 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.7770062499999999
+2025-04-25 21:49:43 - table_identifier - DEBUG - Decreased weight for production.brands to 0.5
+2025-04-25 21:49:43 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5
+2025-04-25 21:49:43 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5
+2025-04-25 21:49:43 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:49:43 - table_identifier - DEBUG - Updating name matches for query: what production categories are available
+2025-04-25 21:49:43 - name_match_manager - DEBUG - Updating synonyms for query: what production categories are available, tables: ['production.categories']
+2025-04-25 21:49:43 - name_match_manager - DEBUG - Added synonym 'production' for production.categories
+2025-04-25 21:49:43 - name_match_manager - DEBUG - Added synonym 'category' for production.categories
+2025-04-25 21:49:43 - name_match_manager - DEBUG - Added synonym 'available' for production.categories
+2025-04-25 21:49:43 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:49:43 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:49:43 - name_match_manager - DEBUG - Updated synonyms for query: what production categories are available, terms: ['production', 'category', 'available'], tables: ['production.categories']
+2025-04-25 21:49:43 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:49:43 - patterns - DEBUG - Added pattern [{'LOWER': 'category'}] for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added pattern [{'LOWER': 'available'}] for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'production' to intent 'name' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'category' to intent 'name' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'available' to intent 'name' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'production' to intent 'details' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'category' to intent 'details' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'available' to intent 'details' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'production' to intent 'stock' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'category' to intent 'stock' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'available' to intent 'stock' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'production' to intent 'category' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'available' to intent 'category' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'production' to intent 'order' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'category' to intent 'order' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'available' to intent 'order' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'production' to intent 'brand' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'category' to intent 'brand' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Added keyword 'available' to intent 'brand' for production.categories
+2025-04-25 21:49:43 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:49:43 - analyzer - INFO - Updated feedback for query: what production categories are available
+2025-04-25 21:49:51 - interface - DEBUG - Validating query: get me store details of Baldwin Bikes
+2025-04-25 21:49:51 - query_processor - DEBUG - Processing query: get me store details of Baldwin Bikes
+2025-04-25 21:49:51 - query_processor - DEBUG - Preprocessing query: get me store details of Baldwin Bikes
+2025-04-25 21:49:51 - query_processor - DEBUG - Preprocessed query: store detail baldwin bike
+2025-04-25 21:49:51 - nlp_pipeline - DEBUG - Processing query: store detail baldwin bike
+2025-04-25 21:49:51 - nlp_pipeline - DEBUG - Preprocessed query: sales.stores sales.staffs detail baldwin bike
+2025-04-25 21:49:51 - table_identifier - DEBUG - Identifying tables for query: sales.stores sales.staffs detail baldwin bike
+2025-04-25 21:49:51 - patterns - DEBUG - Matching patterns for query: sales.stores sales.staffs detail baldwin bike
+2025-04-25 21:49:51 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'production.categories', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'sales.order_items']
+2025-04-25 21:49:51 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'production.categories', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:49:51 - name_match_manager - DEBUG - Matching query: sales.stores sales.staffs detail baldwin bike
+2025-04-25 21:49:52 - name_match_manager - DEBUG - Name matches for query 'sales.stores sales.staffs detail baldwin bike': {'production.products': 4.5, 'production.stocks': 4.5, 'sales.stores': 4.5, 'sales.customers': 1.8, 'production.categories': 2.7}
+2025-04-25 21:49:52 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories'], confidence: 4.5
+2025-04-25 21:49:52 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:49:52 - table_identifier - DEBUG - Final tables: ['sales.stores', 'production.stocks', 'production.products', 'production.categories', 'sales.customers'], confidence: 3.3732084374999993
+2025-04-25 21:49:52 - query_processor - DEBUG - Identified tables: ['sales.stores', 'production.stocks', 'production.products', 'production.categories', 'sales.customers'], confidence: 3.3732084374999993
+2025-04-25 21:49:52 - analyzer - DEBUG - Query: get me store details of Baldwin Bikes, Tables: ['sales.stores', 'production.stocks', 'production.products', 'production.categories', 'sales.customers'], Confidence: 3.3732084374999993
+2025-04-25 21:49:52 - interface - INFO - Suggested tables for query 'get me store details of Baldwin Bikes': ['sales.stores', 'production.stocks', 'production.products', 'production.categories', 'sales.customers'], confidence: 3.3732084374999993
+2025-04-25 21:49:52 - interface - DEBUG - Handling feedback for query: get me store details of Baldwin Bikes
+2025-04-25 21:50:06 - interface - INFO - User rejected tables for query 'get me store details of Baldwin Bikes': ['sales.stores', 'production.stocks', 'production.products', 'production.categories', 'sales.customers']
+2025-04-25 21:50:06 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:50:08 - interface - DEBUG - Selected manual tables: ['sales.stores']
+2025-04-25 21:50:08 - interface - INFO - Updated feedback with tables: ['sales.stores']
+2025-04-25 21:50:08 - analyzer - DEBUG - Validated tables: Valid=['sales.stores'], Invalid=[]
+2025-04-25 21:50:08 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:50:08 - table_identifier - DEBUG - Increased weight for sales.stores to 1.67275
+2025-04-25 21:50:08 - table_identifier - DEBUG - Decreased weight for production.stocks to 0.8904812499999998
+2025-04-25 21:50:08 - table_identifier - DEBUG - Decreased weight for production.products to 0.8904812499999998
+2025-04-25 21:50:08 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5
+2025-04-25 21:50:08 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.5768169062499999
+2025-04-25 21:50:08 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.5
+2025-04-25 21:50:08 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.6604553124999999
+2025-04-25 21:50:08 - table_identifier - DEBUG - Decreased weight for production.brands to 0.5
+2025-04-25 21:50:08 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5
+2025-04-25 21:50:08 - table_identifier - DEBUG - Decreased weight for production.categories to 0.6987053124999998
+2025-04-25 21:50:08 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5
+2025-04-25 21:50:08 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:50:08 - table_identifier - DEBUG - Updating name matches for query: get me store details of Baldwin Bikes
+2025-04-25 21:50:08 - name_match_manager - DEBUG - Updating synonyms for query: get me store details of Baldwin Bikes, tables: ['sales.stores']
+2025-04-25 21:50:08 - name_match_manager - DEBUG - Added synonym 'baldwin' for sales.stores
+2025-04-25 21:50:08 - name_match_manager - DEBUG - Added synonym 'bike' for sales.stores
+2025-04-25 21:50:08 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:50:08 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:50:08 - name_match_manager - DEBUG - Updated synonyms for query: get me store details of baldwin bikes, terms: ['store', 'detail', 'baldwin', 'bike'], tables: ['sales.stores']
+2025-04-25 21:50:08 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:50:09 - patterns - DEBUG - Added pattern [{'LOWER': 'baldwin'}] for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added pattern [{'LOWER': 'bike'}] for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added keyword 'baldwin' to intent 'name' for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added keyword 'bike' to intent 'name' for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added keyword 'baldwin' to intent 'details' for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added keyword 'bike' to intent 'details' for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added keyword 'baldwin' to intent 'stock' for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added keyword 'bike' to intent 'stock' for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added keyword 'baldwin' to intent 'category' for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added keyword 'bike' to intent 'category' for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added keyword 'baldwin' to intent 'order' for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added keyword 'bike' to intent 'order' for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added keyword 'baldwin' to intent 'brand' for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Added keyword 'bike' to intent 'brand' for sales.stores
+2025-04-25 21:50:09 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:50:09 - analyzer - INFO - Updated feedback for query: get me store details of Baldwin Bikes
+2025-04-25 21:50:23 - interface - DEBUG - Validating query: total sales amount at storename 'Baldwin Bikes'
+2025-04-25 21:50:23 - query_processor - DEBUG - Processing query: total sales amount at storename 'Baldwin Bikes'
+2025-04-25 21:50:23 - query_processor - DEBUG - Preprocessing query: total sales amount at storename 'Baldwin Bikes'
+2025-04-25 21:50:23 - query_processor - DEBUG - Preprocessed query: total sale storename baldwin bike
+2025-04-25 21:50:23 - nlp_pipeline - DEBUG - Processing query: total sale storename baldwin bike
+2025-04-25 21:50:23 - nlp_pipeline - DEBUG - Preprocessed query: total sale storename baldwin bike
+2025-04-25 21:50:23 - table_identifier - DEBUG - Identifying tables for query: total sale storename baldwin bike
+2025-04-25 21:50:23 - patterns - DEBUG - Matching patterns for query: total sale storename baldwin bike
+2025-04-25 21:50:23 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items']
+2025-04-25 21:50:23 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:50:23 - name_match_manager - DEBUG - Matching query: total sale storename baldwin bike
+2025-04-25 21:50:25 - name_match_manager - DEBUG - Name matches for query 'total sale storename baldwin bike': {'order': 1.0, 'production.products': 4.5, 'production.stocks': 4.5, 'sales.stores': 6.300000000000001, 'sales.customers': 1.8, 'production.categories': 2.7}
+2025-04-25 21:50:25 - table_identifier - DEBUG - Name matched tables: ['order', 'production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories'], confidence: 6.300000000000001
+2025-04-25 21:50:25 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:50:25 - table_identifier - DEBUG - Final tables: ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories'], confidence: 4.66708726640625
+2025-04-25 21:50:25 - query_processor - DEBUG - Identified tables: ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories'], confidence: 4.66708726640625
+2025-04-25 21:50:25 - analyzer - DEBUG - Query: total sales amount at storename 'Baldwin Bikes', Tables: ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories'], Confidence: 4.66708726640625
+2025-04-25 21:50:25 - interface - INFO - Suggested tables for query 'total sales amount at storename 'Baldwin Bikes'': ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories'], confidence: 4.66708726640625
+2025-04-25 21:50:25 - interface - DEBUG - Handling feedback for query: total sales amount at storename 'Baldwin Bikes'
+2025-04-25 21:50:31 - interface - INFO - User rejected tables for query 'total sales amount at storename 'Baldwin Bikes'': ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories']
+2025-04-25 21:50:31 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:50:35 - interface - DEBUG - Selected manual tables: ['sales.stores']
+2025-04-25 21:50:35 - interface - INFO - Updated feedback with tables: ['sales.stores']
+2025-04-25 21:50:35 - analyzer - DEBUG - Validated tables: Valid=['sales.stores'], Invalid=[]
+2025-04-25 21:50:35 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:50:35 - table_identifier - DEBUG - Increased weight for sales.stores to 1.97275
+2025-04-25 21:50:35 - table_identifier - DEBUG - Decreased weight for production.stocks to 0.7569090624999998
+2025-04-25 21:50:35 - table_identifier - DEBUG - Decreased weight for production.products to 0.7569090624999998
+2025-04-25 21:50:35 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5
+2025-04-25 21:50:35 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.5
+2025-04-25 21:50:35 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.5
+2025-04-25 21:50:35 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.5613870156249999
+2025-04-25 21:50:35 - table_identifier - DEBUG - Decreased weight for production.brands to 0.5
+2025-04-25 21:50:35 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5
+2025-04-25 21:50:35 - table_identifier - DEBUG - Decreased weight for production.categories to 0.5938995156249998
+2025-04-25 21:50:35 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5
+2025-04-25 21:50:35 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:50:35 - table_identifier - DEBUG - Updating name matches for query: total sales amount at storename 'Baldwin Bikes'
+2025-04-25 21:50:35 - name_match_manager - DEBUG - Updating synonyms for query: total sales amount at storename 'Baldwin Bikes', tables: ['sales.stores']
+2025-04-25 21:50:35 - name_match_manager - DEBUG - Added synonym 'total' for sales.stores
+2025-04-25 21:50:35 - name_match_manager - DEBUG - Added synonym 'sale' for sales.stores
+2025-04-25 21:50:35 - name_match_manager - DEBUG - Added synonym 'storename' for sales.stores
+2025-04-25 21:50:35 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:50:35 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:50:35 - name_match_manager - DEBUG - Updated synonyms for query: total sales amount at storename 'baldwin bikes', terms: ['total', 'sale', 'storename', 'baldwin', 'bike'], tables: ['sales.stores']
+2025-04-25 21:50:35 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:50:35 - patterns - DEBUG - Added pattern [{'LOWER': 'total'}] for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added pattern [{'LOWER': 'sale'}] for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added pattern [{'LOWER': 'storename'}] for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'total' to intent 'name' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'sale' to intent 'name' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'storename' to intent 'name' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'total' to intent 'details' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'sale' to intent 'details' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'storename' to intent 'details' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'total' to intent 'stock' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'sale' to intent 'stock' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'storename' to intent 'stock' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'total' to intent 'category' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'sale' to intent 'category' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'storename' to intent 'category' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'total' to intent 'order' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'sale' to intent 'order' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'storename' to intent 'order' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'total' to intent 'brand' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'sale' to intent 'brand' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Added keyword 'storename' to intent 'brand' for sales.stores
+2025-04-25 21:50:35 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:50:35 - analyzer - INFO - Updated feedback for query: total sales amount at storename 'Baldwin Bikes'
+2025-04-25 21:50:45 - interface - DEBUG - Validating query: total sales amount at storename=Baldwin Bikes
+2025-04-25 21:50:45 - query_processor - DEBUG - Processing query: total sales amount at storename=Baldwin Bikes
+2025-04-25 21:50:45 - query_processor - DEBUG - Preprocessing query: total sales amount at storename=Baldwin Bikes
+2025-04-25 21:50:45 - query_processor - DEBUG - Preprocessed query: total sale storename = baldwin bike
+2025-04-25 21:50:45 - nlp_pipeline - DEBUG - Processing query: total sale storename = baldwin bike
+2025-04-25 21:50:45 - nlp_pipeline - DEBUG - Preprocessed query: total sale storename baldwin bike
+2025-04-25 21:50:45 - table_identifier - DEBUG - Identifying tables for query: total sale storename baldwin bike
+2025-04-25 21:50:45 - patterns - DEBUG - Matching patterns for query: total sale storename baldwin bike
+2025-04-25 21:50:45 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items']
+2025-04-25 21:50:45 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:50:45 - name_match_manager - DEBUG - Matching query: total sale storename baldwin bike
+2025-04-25 21:50:47 - name_match_manager - DEBUG - Name matches for query 'total sale storename baldwin bike': {'order': 1.0, 'production.products': 4.5, 'production.stocks': 4.5, 'sales.stores': 9.000000000000002, 'sales.customers': 1.8, 'production.categories': 2.7}
+2025-04-25 21:50:47 - table_identifier - DEBUG - Name matched tables: ['order', 'production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories'], confidence: 9.000000000000002
+2025-04-25 21:50:47 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:50:47 - table_identifier - DEBUG - Final tables: ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories'], confidence: 6.4813909921875
+2025-04-25 21:50:47 - query_processor - DEBUG - Identified tables: ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories'], confidence: 6.4813909921875
+2025-04-25 21:50:47 - analyzer - DEBUG - Query: total sales amount at storename=Baldwin Bikes, Tables: ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories'], Confidence: 6.4813909921875
+2025-04-25 21:50:47 - interface - INFO - Suggested tables for query 'total sales amount at storename=Baldwin Bikes': ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories'], confidence: 6.4813909921875
+2025-04-25 21:50:47 - interface - DEBUG - Handling feedback for query: total sales amount at storename=Baldwin Bikes
+2025-04-25 21:50:51 - interface - INFO - User rejected tables for query 'total sales amount at storename=Baldwin Bikes': ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories']
+2025-04-25 21:50:51 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:50:54 - interface - DEBUG - Selected manual tables: ['sales.stores']
+2025-04-25 21:50:54 - interface - INFO - Updated feedback with tables: ['sales.stores']
+2025-04-25 21:50:54 - analyzer - DEBUG - Validated tables: Valid=['sales.stores'], Invalid=[]
+2025-04-25 21:50:54 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:50:54 - table_identifier - DEBUG - Increased weight for sales.stores to 2.27275
+2025-04-25 21:50:54 - table_identifier - DEBUG - Decreased weight for production.stocks to 0.6433727031249998
+2025-04-25 21:50:54 - table_identifier - DEBUG - Decreased weight for production.products to 0.6433727031249998
+2025-04-25 21:50:54 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5
+2025-04-25 21:50:54 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.5
+2025-04-25 21:50:54 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.5
+2025-04-25 21:50:54 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.5
+2025-04-25 21:50:54 - table_identifier - DEBUG - Decreased weight for production.brands to 0.5
+2025-04-25 21:50:54 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5
+2025-04-25 21:50:54 - table_identifier - DEBUG - Decreased weight for production.categories to 0.5048145882812498
+2025-04-25 21:50:54 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5
+2025-04-25 21:50:54 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:50:54 - table_identifier - DEBUG - Updating name matches for query: total sales amount at storename=Baldwin Bikes
+2025-04-25 21:50:54 - name_match_manager - DEBUG - Updating synonyms for query: total sales amount at storename=Baldwin Bikes, tables: ['sales.stores']
+2025-04-25 21:50:54 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:50:54 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:50:54 - name_match_manager - DEBUG - Updated synonyms for query: total sales amount at storename=baldwin bikes, terms: ['total', 'sale', 'storename', 'baldwin', 'bike'], tables: ['sales.stores']
+2025-04-25 21:50:54 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:50:54 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:50:54 - analyzer - INFO - Updated feedback for query: total sales amount at storename=Baldwin Bikes
+2025-04-25 21:51:03 - interface - DEBUG - Validating query: total sales amount at storename 'Baldwin Bikes'
+2025-04-25 21:51:03 - query_processor - DEBUG - Processing query: total sales amount at storename 'Baldwin Bikes'
+2025-04-25 21:51:03 - query_processor - DEBUG - Preprocessing query: total sales amount at storename 'Baldwin Bikes'
+2025-04-25 21:51:03 - query_processor - DEBUG - Preprocessed query: total sale storename baldwin bike
+2025-04-25 21:51:03 - nlp_pipeline - DEBUG - Processing query: total sale storename baldwin bike
+2025-04-25 21:51:03 - nlp_pipeline - DEBUG - Preprocessed query: total sale storename baldwin bike
+2025-04-25 21:51:03 - table_identifier - DEBUG - Identifying tables for query: total sale storename baldwin bike
+2025-04-25 21:51:03 - patterns - DEBUG - Matching patterns for query: total sale storename baldwin bike
+2025-04-25 21:51:03 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items']
+2025-04-25 21:51:03 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:51:03 - name_match_manager - DEBUG - Matching query: total sale storename baldwin bike
+2025-04-25 21:51:05 - name_match_manager - DEBUG - Name matches for query 'total sale storename baldwin bike': {'order': 1.0, 'production.products': 4.5, 'production.stocks': 4.5, 'sales.stores': 9.000000000000002, 'sales.customers': 1.8, 'production.categories': 2.7}
+2025-04-25 21:51:05 - table_identifier - DEBUG - Name matched tables: ['order', 'production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories'], confidence: 9.000000000000002
+2025-04-25 21:51:05 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:51:05 - table_identifier - DEBUG - Final tables: ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories'], confidence: 6.4232324958984375
+2025-04-25 21:51:05 - query_processor - DEBUG - Identified tables: ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories'], confidence: 6.4232324958984375
+2025-04-25 21:51:05 - analyzer - DEBUG - Query: total sales amount at storename 'Baldwin Bikes', Tables: ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories'], Confidence: 6.4232324958984375
+2025-04-25 21:51:05 - interface - INFO - Suggested tables for query 'total sales amount at storename 'Baldwin Bikes'': ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories'], confidence: 6.4232324958984375
+2025-04-25 21:51:05 - interface - DEBUG - Handling feedback for query: total sales amount at storename 'Baldwin Bikes'
+2025-04-25 21:51:09 - interface - INFO - User rejected tables for query 'total sales amount at storename 'Baldwin Bikes'': ['sales.stores', 'order', 'production.stocks', 'production.products', 'production.categories']
+2025-04-25 21:51:09 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:51:13 - interface - DEBUG - Selected manual tables: ['sales.stores']
+2025-04-25 21:51:13 - interface - INFO - Updated feedback with tables: ['sales.stores']
+2025-04-25 21:51:13 - analyzer - DEBUG - Validated tables: Valid=['sales.stores'], Invalid=[]
+2025-04-25 21:51:13 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:51:13 - table_identifier - DEBUG - Increased weight for sales.stores to 2.5727499999999996
+2025-04-25 21:51:13 - table_identifier - DEBUG - Decreased weight for production.stocks to 0.5468667976562498
+2025-04-25 21:51:13 - table_identifier - DEBUG - Decreased weight for production.products to 0.5468667976562498
+2025-04-25 21:51:13 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5
+2025-04-25 21:51:13 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.5
+2025-04-25 21:51:13 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.5
+2025-04-25 21:51:13 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.5
+2025-04-25 21:51:13 - table_identifier - DEBUG - Decreased weight for production.brands to 0.5
+2025-04-25 21:51:13 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5
+2025-04-25 21:51:13 - table_identifier - DEBUG - Decreased weight for production.categories to 0.5
+2025-04-25 21:51:13 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5
+2025-04-25 21:51:13 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:51:13 - table_identifier - DEBUG - Updating name matches for query: total sales amount at storename 'Baldwin Bikes'
+2025-04-25 21:51:13 - name_match_manager - DEBUG - Updating synonyms for query: total sales amount at storename 'Baldwin Bikes', tables: ['sales.stores']
+2025-04-25 21:51:13 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:51:13 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:51:13 - name_match_manager - DEBUG - Updated synonyms for query: total sales amount at storename 'baldwin bikes', terms: ['total', 'sale', 'storename', 'baldwin', 'bike'], tables: ['sales.stores']
+2025-04-25 21:51:13 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:51:13 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:51:13 - analyzer - INFO - Updated feedback for query: total sales amount at storename 'Baldwin Bikes'
+2025-04-25 21:51:23 - interface - DEBUG - Validating query: what
+2025-04-25 21:51:23 - interface - WARNING - Single-word query: what
+2025-04-25 21:51:23 - interface - WARNING - Invalid query: what
+2025-04-25 21:51:30 - interface - DEBUG - Validating query: chitti emchestunnav
+2025-04-25 21:51:30 - interface - WARNING - Irrelevant query detected: chitti emchestunnav
+2025-04-25 21:51:30 - interface - WARNING - Invalid query: chitti emchestunnav
+2025-04-25 21:51:35 - interface - DEBUG - Validating query: BABU BAGUNNAVA
+2025-04-25 21:51:35 - interface - WARNING - Irrelevant query detected: BABU BAGUNNAVA
+2025-04-25 21:51:35 - interface - WARNING - Invalid query: BABU BAGUNNAVA
+2025-04-25 21:51:45 - interface - DEBUG - Validating query: EM CHESTUNDAV RA
+2025-04-25 21:51:45 - interface - WARNING - Query lacks relevant database terms: EM CHESTUNDAV RA
+2025-04-25 21:51:45 - interface - WARNING - Invalid query: EM CHESTUNDAV RA
+2025-04-25 21:52:38 - interface - DEBUG - Validating query: OREI CUSTOMER NUVVU CYCLE STORE KI RA
+2025-04-25 21:52:38 - query_processor - DEBUG - Processing query: OREI CUSTOMER NUVVU CYCLE STORE KI RA
+2025-04-25 21:52:38 - query_processor - DEBUG - Preprocessing query: OREI CUSTOMER NUVVU CYCLE STORE KI RA
+2025-04-25 21:52:38 - query_processor - DEBUG - Preprocessed query: orei customer nuvvu cycle store ki ra
+2025-04-25 21:52:38 - nlp_pipeline - DEBUG - Processing query: orei customer nuvvu cycle store ki ra
+2025-04-25 21:52:38 - nlp_pipeline - DEBUG - Preprocessed query: orei customer nuvvu cycle sales.stores sales.staffs ki ra
+2025-04-25 21:52:38 - table_identifier - DEBUG - Identifying tables for query: orei customer nuvvu cycle sales.stores sales.staffs ki ra
+2025-04-25 21:52:38 - patterns - DEBUG - Matching patterns for query: orei customer nuvvu cycle sales.stores sales.staffs ki ra
+2025-04-25 21:52:38 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'production.categories', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'sales.order_items']
+2025-04-25 21:52:38 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'production.categories', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:52:38 - name_match_manager - DEBUG - Matching query: orei customer nuvvu cycle sales.stores sales.staffs ki ra
+2025-04-25 21:52:41 - name_match_manager - DEBUG - Name matches for query 'orei customer nuvvu cycle sales.stores sales.staffs ki ra': {'production.products': 4.5, 'production.stocks': 4.5, 'sales.stores': 9.000000000000002, 'sales.customers': 1.8, 'production.categories': 2.7}
+2025-04-25 21:52:41 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories'], confidence: 9.000000000000002
+2025-04-25 21:52:41 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:52:41 - table_identifier - DEBUG - Final tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs'], confidence: 6.272577487073864
+2025-04-25 21:52:41 - query_processor - DEBUG - Identified tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs'], confidence: 6.272577487073864
+2025-04-25 21:52:41 - analyzer - DEBUG - Query: OREI CUSTOMER NUVVU CYCLE STORE KI RA, Tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs'], Confidence: 6.272577487073864
+2025-04-25 21:52:41 - interface - INFO - Suggested tables for query 'OREI CUSTOMER NUVVU CYCLE STORE KI RA': ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs'], confidence: 6.272577487073864
+2025-04-25 21:52:41 - interface - DEBUG - Handling feedback for query: OREI CUSTOMER NUVVU CYCLE STORE KI RA
+2025-04-25 21:53:08 - interface - INFO - User rejected tables for query 'OREI CUSTOMER NUVVU CYCLE STORE KI RA': ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs']
+2025-04-25 21:53:08 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:53:10 - interface - DEBUG - No manual tables selected
+2025-04-25 21:53:15 - interface - DEBUG - Validating query: OREI CUSTOMER NUVVU CYCLE STORE KI RA
+2025-04-25 21:53:15 - query_processor - DEBUG - Processing query: OREI CUSTOMER NUVVU CYCLE STORE KI RA
+2025-04-25 21:53:15 - query_processor - DEBUG - Preprocessing query: OREI CUSTOMER NUVVU CYCLE STORE KI RA
+2025-04-25 21:53:15 - query_processor - DEBUG - Preprocessed query: orei customer nuvvu cycle store ki ra
+2025-04-25 21:53:15 - nlp_pipeline - DEBUG - Processing query: orei customer nuvvu cycle store ki ra
+2025-04-25 21:53:15 - nlp_pipeline - DEBUG - Preprocessed query: orei customer nuvvu cycle sales.stores sales.staffs ki ra
+2025-04-25 21:53:15 - table_identifier - DEBUG - Identifying tables for query: orei customer nuvvu cycle sales.stores sales.staffs ki ra
+2025-04-25 21:53:15 - patterns - DEBUG - Matching patterns for query: orei customer nuvvu cycle sales.stores sales.staffs ki ra
+2025-04-25 21:53:15 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'production.categories', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'sales.order_items']
+2025-04-25 21:53:15 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'production.categories', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:53:15 - name_match_manager - DEBUG - Matching query: orei customer nuvvu cycle sales.stores sales.staffs ki ra
+2025-04-25 21:53:18 - name_match_manager - DEBUG - Name matches for query 'orei customer nuvvu cycle sales.stores sales.staffs ki ra': {'production.products': 4.5, 'production.stocks': 4.5, 'sales.stores': 9.000000000000002, 'sales.customers': 1.8, 'production.categories': 2.7}
+2025-04-25 21:53:18 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories'], confidence: 9.000000000000002
+2025-04-25 21:53:18 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:53:18 - table_identifier - DEBUG - Final tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs'], confidence: 6.272577487073864
+2025-04-25 21:53:18 - query_processor - DEBUG - Identified tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs'], confidence: 6.272577487073864
+2025-04-25 21:53:18 - analyzer - DEBUG - Query: OREI CUSTOMER NUVVU CYCLE STORE KI RA, Tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs'], Confidence: 6.272577487073864
+2025-04-25 21:53:18 - interface - INFO - Suggested tables for query 'OREI CUSTOMER NUVVU CYCLE STORE KI RA': ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs'], confidence: 6.272577487073864
+2025-04-25 21:53:18 - interface - DEBUG - Handling feedback for query: OREI CUSTOMER NUVVU CYCLE STORE KI RA
+2025-04-25 21:53:22 - interface - INFO - User rejected tables for query 'OREI CUSTOMER NUVVU CYCLE STORE KI RA': ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs']
+2025-04-25 21:53:22 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:53:22 - interface - DEBUG - No manual tables selected
+2025-04-25 21:53:35 - interface - DEBUG - Validating query: sonia
+2025-04-25 21:53:35 - interface - WARNING - Single-word query: sonia
+2025-04-25 21:53:35 - interface - WARNING - Invalid query: sonia
+2025-04-25 21:53:38 - interface - DEBUG - Validating query: I like you
+2025-04-25 21:53:38 - interface - WARNING - Irrelevant query detected: I like you
+2025-04-25 21:53:38 - interface - WARNING - Invalid query: I like you
+2025-04-25 21:53:49 - interface - DEBUG - Validating query: I like you
+2025-04-25 21:53:49 - interface - WARNING - Irrelevant query detected: I like you
+2025-04-25 21:53:49 - interface - WARNING - Invalid query: I like you
+2025-04-25 21:54:08 - interface - DEBUG - Validating query: what you are doing now?
+2025-04-25 21:54:08 - interface - WARNING - Irrelevant query detected: what you are doing now?
+2025-04-25 21:54:08 - interface - WARNING - Invalid query: what you are doing now?
+2025-04-25 21:54:14 - interface - DEBUG - Validating query: what you are doing now at cycle stores?
+2025-04-25 21:54:14 - interface - WARNING - Irrelevant query detected: what you are doing now at cycle stores?
+2025-04-25 21:54:14 - interface - WARNING - Invalid query: what you are doing now at cycle stores?
+2025-04-25 21:54:25 - interface - DEBUG - Validating query: 111 123 143
+2025-04-25 21:54:25 - interface - WARNING - Query lacks relevant database terms: 111 123 143
+2025-04-25 21:54:25 - interface - WARNING - Invalid query: 111 123 143
+2025-04-25 21:54:31 - interface - DEBUG - Validating query: +919666666201
+2025-04-25 21:54:31 - interface - WARNING - Single-word query: +919666666201
+2025-04-25 21:54:31 - interface - WARNING - Invalid query: +919666666201
+2025-04-25 21:54:39 - interface - DEBUG - Validating query: stores in india
+2025-04-25 21:54:39 - query_processor - DEBUG - Processing query: stores in india
+2025-04-25 21:54:39 - query_processor - DEBUG - Preprocessing query: stores in india
+2025-04-25 21:54:39 - query_processor - DEBUG - Preprocessed query: store india
+2025-04-25 21:54:39 - nlp_pipeline - DEBUG - Processing query: store india
+2025-04-25 21:54:39 - nlp_pipeline - DEBUG - Preprocessed query: sales.stores sales.staffs india
+2025-04-25 21:54:39 - table_identifier - DEBUG - Identifying tables for query: sales.stores sales.staffs india
+2025-04-25 21:54:39 - patterns - DEBUG - Matching patterns for query: sales.stores sales.staffs india
+2025-04-25 21:54:39 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'production.categories', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'sales.order_items']
+2025-04-25 21:54:39 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'production.categories', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:54:39 - name_match_manager - DEBUG - Matching query: sales.stores sales.staffs india
+2025-04-25 21:54:39 - name_match_manager - DEBUG - Name matches for query 'sales.stores sales.staffs india': {'production.products': 4.5, 'production.stocks': 4.5, 'sales.stores': 9.000000000000002, 'sales.customers': 1.8, 'production.categories': 2.7}
+2025-04-25 21:54:39 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories'], confidence: 9.000000000000002
+2025-04-25 21:54:39 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:54:39 - table_identifier - DEBUG - Final tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs'], confidence: 6.272577487073864
+2025-04-25 21:54:39 - query_processor - DEBUG - Identified tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs'], confidence: 6.272577487073864
+2025-04-25 21:54:39 - analyzer - DEBUG - Query: stores in india, Tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs'], Confidence: 6.272577487073864
+2025-04-25 21:54:39 - interface - INFO - Suggested tables for query 'stores in india': ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs'], confidence: 6.272577487073864
+2025-04-25 21:54:39 - interface - DEBUG - Handling feedback for query: stores in india
+2025-04-25 21:54:42 - interface - INFO - User rejected tables for query 'stores in india': ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs']
+2025-04-25 21:54:42 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:54:46 - interface - DEBUG - Selected manual tables: ['sales.stores']
+2025-04-25 21:54:46 - interface - INFO - Updated feedback with tables: ['sales.stores']
+2025-04-25 21:54:46 - analyzer - DEBUG - Validated tables: Valid=['sales.stores'], Invalid=[]
+2025-04-25 21:54:46 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:54:46 - table_identifier - DEBUG - Increased weight for sales.stores to 2.8727499999999995
+2025-04-25 21:54:46 - table_identifier - DEBUG - Decreased weight for production.stocks to 0.5
+2025-04-25 21:54:46 - table_identifier - DEBUG - Decreased weight for production.products to 0.5
+2025-04-25 21:54:46 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5
+2025-04-25 21:54:46 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.5
+2025-04-25 21:54:46 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.5
+2025-04-25 21:54:46 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.5
+2025-04-25 21:54:46 - table_identifier - DEBUG - Decreased weight for production.brands to 0.5
+2025-04-25 21:54:46 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5
+2025-04-25 21:54:46 - table_identifier - DEBUG - Decreased weight for production.categories to 0.5
+2025-04-25 21:54:46 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5
+2025-04-25 21:54:46 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:54:46 - table_identifier - DEBUG - Updating name matches for query: stores in india
+2025-04-25 21:54:46 - name_match_manager - DEBUG - Updating synonyms for query: stores in india, tables: ['sales.stores']
+2025-04-25 21:54:46 - name_match_manager - DEBUG - Added synonym 'india' for sales.stores
+2025-04-25 21:54:46 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:54:46 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:54:46 - name_match_manager - DEBUG - Updated synonyms for query: stores in india, terms: ['store', 'india'], tables: ['sales.stores']
+2025-04-25 21:54:46 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:54:46 - patterns - DEBUG - Added pattern [{'LOWER': 'india'}] for sales.stores
+2025-04-25 21:54:46 - patterns - DEBUG - Added keyword 'india' to intent 'name' for sales.stores
+2025-04-25 21:54:46 - patterns - DEBUG - Added keyword 'india' to intent 'details' for sales.stores
+2025-04-25 21:54:46 - patterns - DEBUG - Added keyword 'india' to intent 'stock' for sales.stores
+2025-04-25 21:54:46 - patterns - DEBUG - Added keyword 'india' to intent 'category' for sales.stores
+2025-04-25 21:54:46 - patterns - DEBUG - Added keyword 'india' to intent 'order' for sales.stores
+2025-04-25 21:54:46 - patterns - DEBUG - Added keyword 'india' to intent 'brand' for sales.stores
+2025-04-25 21:54:46 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:54:46 - analyzer - INFO - Updated feedback for query: stores in india
+2025-04-25 21:54:51 - interface - DEBUG - Validating query: stores in USA
+2025-04-25 21:54:51 - query_processor - DEBUG - Processing query: stores in USA
+2025-04-25 21:54:51 - query_processor - DEBUG - Preprocessing query: stores in USA
+2025-04-25 21:54:51 - query_processor - DEBUG - Preprocessed query: store usa
+2025-04-25 21:54:51 - nlp_pipeline - DEBUG - Processing query: store usa
+2025-04-25 21:54:51 - nlp_pipeline - DEBUG - Preprocessed query: sales.stores sales.staffs usa
+2025-04-25 21:54:51 - table_identifier - DEBUG - Identifying tables for query: sales.stores sales.staffs usa
+2025-04-25 21:54:51 - patterns - DEBUG - Matching patterns for query: sales.stores sales.staffs usa
+2025-04-25 21:54:51 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'production.categories', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'sales.order_items']
+2025-04-25 21:54:51 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'production.categories', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:54:51 - name_match_manager - DEBUG - Matching query: sales.stores sales.staffs usa
+2025-04-25 21:54:52 - name_match_manager - DEBUG - Name matches for query 'sales.stores sales.staffs usa': {'production.products': 4.5, 'production.stocks': 4.5, 'sales.stores': 9.900000000000002, 'sales.customers': 1.8, 'production.categories': 2.7}
+2025-04-25 21:54:52 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories'], confidence: 9.900000000000002
+2025-04-25 21:54:52 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:54:52 - table_identifier - DEBUG - Final tables: ['sales.stores', 'production.stocks', 'hr.candidates', 'production.products', 'sales.staffs'], confidence: 7.0854750000000015
+2025-04-25 21:54:52 - query_processor - DEBUG - Identified tables: ['sales.stores', 'production.stocks', 'hr.candidates', 'production.products', 'sales.staffs'], confidence: 7.0854750000000015
+2025-04-25 21:54:52 - analyzer - DEBUG - Query: stores in USA, Tables: ['sales.stores', 'production.stocks', 'hr.candidates', 'production.products', 'sales.staffs'], Confidence: 7.0854750000000015
+2025-04-25 21:54:52 - interface - INFO - Suggested tables for query 'stores in USA': ['sales.stores', 'production.stocks', 'hr.candidates', 'production.products', 'sales.staffs'], confidence: 7.0854750000000015
+2025-04-25 21:54:52 - interface - DEBUG - Handling feedback for query: stores in USA
+2025-04-25 21:54:55 - interface - INFO - User rejected tables for query 'stores in USA': ['sales.stores', 'production.stocks', 'hr.candidates', 'production.products', 'sales.staffs']
+2025-04-25 21:54:55 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:54:58 - interface - DEBUG - Selected manual tables: ['sales.stores']
+2025-04-25 21:54:58 - interface - INFO - Updated feedback with tables: ['sales.stores']
+2025-04-25 21:54:58 - analyzer - DEBUG - Validated tables: Valid=['sales.stores'], Invalid=[]
+2025-04-25 21:54:58 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:54:58 - table_identifier - DEBUG - Increased weight for sales.stores to 3.1727499999999993
+2025-04-25 21:54:58 - table_identifier - DEBUG - Decreased weight for production.stocks to 0.5
+2025-04-25 21:54:58 - table_identifier - DEBUG - Decreased weight for production.products to 0.5
+2025-04-25 21:54:58 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5
+2025-04-25 21:54:58 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.5
+2025-04-25 21:54:58 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.5
+2025-04-25 21:54:58 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.5
+2025-04-25 21:54:58 - table_identifier - DEBUG - Decreased weight for production.brands to 0.5
+2025-04-25 21:54:58 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5
+2025-04-25 21:54:58 - table_identifier - DEBUG - Decreased weight for production.categories to 0.5
+2025-04-25 21:54:58 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5
+2025-04-25 21:54:58 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:54:58 - table_identifier - DEBUG - Updating name matches for query: stores in USA
+2025-04-25 21:54:58 - name_match_manager - DEBUG - Updating synonyms for query: stores in USA, tables: ['sales.stores']
+2025-04-25 21:54:58 - name_match_manager - DEBUG - Added synonym 'usa' for sales.stores
+2025-04-25 21:54:58 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:54:58 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:54:58 - name_match_manager - DEBUG - Updated synonyms for query: stores in usa, terms: ['store', 'usa'], tables: ['sales.stores']
+2025-04-25 21:54:58 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:54:58 - patterns - DEBUG - Added pattern [{'LOWER': 'usa'}] for sales.stores
+2025-04-25 21:54:58 - patterns - DEBUG - Added keyword 'usa' to intent 'name' for sales.stores
+2025-04-25 21:54:58 - patterns - DEBUG - Added keyword 'usa' to intent 'details' for sales.stores
+2025-04-25 21:54:58 - patterns - DEBUG - Added keyword 'usa' to intent 'stock' for sales.stores
+2025-04-25 21:54:58 - patterns - DEBUG - Added keyword 'usa' to intent 'category' for sales.stores
+2025-04-25 21:54:58 - patterns - DEBUG - Added keyword 'usa' to intent 'order' for sales.stores
+2025-04-25 21:54:58 - patterns - DEBUG - Added keyword 'usa' to intent 'brand' for sales.stores
+2025-04-25 21:54:58 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:54:58 - analyzer - INFO - Updated feedback for query: stores in USA
+2025-04-25 21:55:08 - interface - DEBUG - Validating query: list all products by categories and brand names
+2025-04-25 21:55:08 - query_processor - DEBUG - Processing query: list all products by categories and brand names
+2025-04-25 21:55:08 - query_processor - DEBUG - Preprocessing query: list all products by categories and brand names
+2025-04-25 21:55:08 - query_processor - DEBUG - Preprocessed query: list product category brand name
+2025-04-25 21:55:08 - nlp_pipeline - DEBUG - Processing query: list product category brand name
+2025-04-25 21:55:08 - nlp_pipeline - DEBUG - Preprocessed query: list production.categories brand
+2025-04-25 21:55:08 - table_identifier - DEBUG - Identifying tables for query: list production.categories brand
+2025-04-25 21:55:08 - patterns - DEBUG - Matching patterns for query: list production.categories brand
+2025-04-25 21:55:08 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items']
+2025-04-25 21:55:08 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:55:08 - name_match_manager - DEBUG - Matching query: list production.categories brand
+2025-04-25 21:55:08 - name_match_manager - DEBUG - Name matches for query 'list production.categories brand': {'production.products': 4.5, 'production.stocks': 4.5, 'sales.stores': 10.800000000000002, 'sales.customers': 1.8, 'production.categories': 2.7}
+2025-04-25 21:55:08 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories'], confidence: 10.800000000000002
+2025-04-25 21:55:08 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:55:08 - table_identifier - DEBUG - Final tables: ['sales.stores', 'production.stocks', 'hr.candidates', 'production.products', 'sales.staffs'], confidence: 8.024154545454547
+2025-04-25 21:55:08 - query_processor - DEBUG - Identified tables: ['sales.stores', 'production.stocks', 'hr.candidates', 'production.products', 'sales.staffs'], confidence: 8.024154545454547
+2025-04-25 21:55:08 - analyzer - DEBUG - Query: list all products by categories and brand names, Tables: ['sales.stores', 'production.stocks', 'hr.candidates', 'production.products', 'sales.staffs'], Confidence: 8.024154545454547
+2025-04-25 21:55:08 - interface - INFO - Suggested tables for query 'list all products by categories and brand names': ['sales.stores', 'production.stocks', 'hr.candidates', 'production.products', 'sales.staffs'], confidence: 8.024154545454547
+2025-04-25 21:55:08 - interface - DEBUG - Handling feedback for query: list all products by categories and brand names
+2025-04-25 21:55:19 - interface - INFO - User rejected tables for query 'list all products by categories and brand names': ['sales.stores', 'production.stocks', 'hr.candidates', 'production.products', 'sales.staffs']
+2025-04-25 21:55:19 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:55:21 - interface - DEBUG - Selected manual tables: ['production.categories', 'production.brands', 'production.products']
+2025-04-25 21:55:21 - interface - INFO - Updated feedback with tables: ['production.categories', 'production.brands', 'production.products']
+2025-04-25 21:55:21 - analyzer - DEBUG - Validated tables: Valid=['production.categories', 'production.brands', 'production.products'], Invalid=[]
+2025-04-25 21:55:21 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:55:21 - table_identifier - DEBUG - Increased weight for production.categories to 0.8
+2025-04-25 21:55:21 - table_identifier - DEBUG - Increased weight for production.brands to 0.8
+2025-04-25 21:55:21 - table_identifier - DEBUG - Increased weight for production.products to 0.8
+2025-04-25 21:55:21 - table_identifier - DEBUG - Decreased weight for sales.stores to 2.696837499999999
+2025-04-25 21:55:21 - table_identifier - DEBUG - Decreased weight for production.stocks to 0.5
+2025-04-25 21:55:21 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5
+2025-04-25 21:55:21 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.5
+2025-04-25 21:55:21 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.5
+2025-04-25 21:55:21 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.5
+2025-04-25 21:55:21 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5
+2025-04-25 21:55:21 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5
+2025-04-25 21:55:21 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:55:21 - table_identifier - DEBUG - Updating name matches for query: list all products by categories and brand names
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Updating synonyms for query: list all products by categories and brand names, tables: ['production.categories', 'production.brands', 'production.products']
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'list' for production.categories
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'product' for production.categories
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'brand' for production.categories
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'name' for production.categories
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'list' for production.brands
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'product' for production.brands
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'category' for production.brands
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'brand' for production.brands
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'name' for production.brands
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'list' for production.products
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'category' for production.products
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'brand' for production.products
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Added synonym 'name' for production.products
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:55:21 - name_match_manager - DEBUG - Updated synonyms for query: list all products by categories and brand names, terms: ['list', 'product', 'category', 'brand', 'name'], tables: ['production.categories', 'production.brands', 'production.products']
+2025-04-25 21:55:21 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'list'}] for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'product'}] for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'brand'}] for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'name'}] for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added keyword 'list' to intent 'name' for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added keyword 'brand' to intent 'name' for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added keyword 'list' to intent 'details' for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added keyword 'brand' to intent 'details' for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added keyword 'list' to intent 'stock' for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added keyword 'brand' to intent 'stock' for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added keyword 'list' to intent 'category' for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added keyword 'brand' to intent 'category' for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added keyword 'list' to intent 'order' for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added keyword 'brand' to intent 'order' for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added keyword 'list' to intent 'brand' for production.categories
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'list'}] for production.brands
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'product'}] for production.brands
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'category'}] for production.brands
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'brand'}] for production.brands
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'name'}] for production.brands
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'list'}] for production.products
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'category'}] for production.products
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'brand'}] for production.products
+2025-04-25 21:55:21 - patterns - DEBUG - Added pattern [{'LOWER': 'name'}] for production.products
+2025-04-25 21:55:21 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:55:21 - analyzer - INFO - Updated feedback for query: list all products by categories and brand names
+2025-04-25 21:55:27 - interface - DEBUG - Validating query: how many orders were delivered in 2016
+2025-04-25 21:55:27 - query_processor - DEBUG - Processing query: how many orders were delivered in 2016
+2025-04-25 21:55:27 - query_processor - DEBUG - Preprocessing query: how many orders were delivered in 2016
+2025-04-25 21:55:27 - query_processor - DEBUG - Preprocessed query: order deliver 2016
+2025-04-25 21:55:27 - nlp_pipeline - DEBUG - Processing query: order deliver 2016
+2025-04-25 21:55:27 - nlp_pipeline - DEBUG - Preprocessed query: order deliver
+2025-04-25 21:55:27 - table_identifier - DEBUG - Identifying tables for query: order deliver
+2025-04-25 21:55:27 - patterns - DEBUG - Matching patterns for query: order deliver
+2025-04-25 21:55:27 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items']
+2025-04-25 21:55:27 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:55:27 - name_match_manager - DEBUG - Matching query: order deliver
+2025-04-25 21:55:28 - name_match_manager - DEBUG - Name matches for query 'order deliver': {'production.products': 8.100000000000001, 'production.stocks': 4.5, 'sales.stores': 10.800000000000002, 'sales.customers': 1.8, 'production.categories': 6.300000000000001, 'production.brands': 4.5, 'product': 0.9999999630095358}
+2025-04-25 21:55:28 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories', 'production.brands', 'product'], confidence: 10.800000000000002
+2025-04-25 21:55:28 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:55:28 - table_identifier - DEBUG - Final tables: ['sales.stores', 'product', 'production.products', 'production.brands', 'production.categories'], confidence: 8.637153750000001
+2025-04-25 21:55:28 - query_processor - DEBUG - Identified tables: ['sales.stores', 'product', 'production.products', 'production.brands', 'production.categories'], confidence: 8.637153750000001
+2025-04-25 21:55:28 - analyzer - DEBUG - Query: how many orders were delivered in 2016, Tables: ['sales.stores', 'product', 'production.products', 'production.brands', 'production.categories'], Confidence: 8.637153750000001
+2025-04-25 21:55:28 - interface - INFO - Suggested tables for query 'how many orders were delivered in 2016': ['sales.stores', 'product', 'production.products', 'production.brands', 'production.categories'], confidence: 8.637153750000001
+2025-04-25 21:55:28 - interface - DEBUG - Handling feedback for query: how many orders were delivered in 2016
+2025-04-25 21:55:31 - interface - INFO - User rejected tables for query 'how many orders were delivered in 2016': ['sales.stores', 'product', 'production.products', 'production.brands', 'production.categories']
+2025-04-25 21:55:31 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:55:36 - interface - DEBUG - Selected manual tables: ['sales.stores']
+2025-04-25 21:55:36 - interface - INFO - Updated feedback with tables: ['sales.stores']
+2025-04-25 21:55:36 - analyzer - DEBUG - Validated tables: Valid=['sales.stores'], Invalid=[]
+2025-04-25 21:55:36 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:55:36 - table_identifier - DEBUG - Increased weight for sales.stores to 2.996837499999999
+2025-04-25 21:55:36 - table_identifier - DEBUG - Decreased weight for production.stocks to 0.5
+2025-04-25 21:55:36 - table_identifier - DEBUG - Decreased weight for production.products to 0.68
+2025-04-25 21:55:36 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5
+2025-04-25 21:55:36 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.5
+2025-04-25 21:55:36 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.5
+2025-04-25 21:55:36 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.5
+2025-04-25 21:55:36 - table_identifier - DEBUG - Decreased weight for production.brands to 0.68
+2025-04-25 21:55:36 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5
+2025-04-25 21:55:36 - table_identifier - DEBUG - Decreased weight for production.categories to 0.68
+2025-04-25 21:55:36 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5
+2025-04-25 21:55:36 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:55:36 - table_identifier - DEBUG - Updating name matches for query: how many orders were delivered in 2016
+2025-04-25 21:55:36 - name_match_manager - DEBUG - Updating synonyms for query: how many orders were delivered in 2016, tables: ['sales.stores']
+2025-04-25 21:55:36 - name_match_manager - DEBUG - Added synonym 'order' for sales.stores
+2025-04-25 21:55:36 - name_match_manager - DEBUG - Added synonym 'deliver' for sales.stores
+2025-04-25 21:55:36 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:55:36 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:55:36 - name_match_manager - DEBUG - Updated synonyms for query: how many orders were delivered in 2016, terms: ['order', 'deliver'], tables: ['sales.stores']
+2025-04-25 21:55:36 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:55:36 - patterns - DEBUG - Added pattern [{'LOWER': 'order'}] for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Added pattern [{'LOWER': 'deliver'}] for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Added keyword 'order' to intent 'name' for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Added keyword 'deliver' to intent 'name' for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Added keyword 'order' to intent 'details' for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Added keyword 'deliver' to intent 'details' for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Added keyword 'order' to intent 'stock' for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Added keyword 'deliver' to intent 'stock' for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Added keyword 'order' to intent 'category' for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Added keyword 'deliver' to intent 'category' for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Added keyword 'deliver' to intent 'order' for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Added keyword 'order' to intent 'brand' for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Added keyword 'deliver' to intent 'brand' for sales.stores
+2025-04-25 21:55:36 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:55:36 - analyzer - INFO - Updated feedback for query: how many orders were delivered in 2016
+2025-04-25 21:55:43 - interface - DEBUG - Validating query: orders processed between Jan-15-2016 and Jan-14-2017
+2025-04-25 21:55:43 - query_processor - DEBUG - Processing query: orders processed between Jan-15-2016 and Jan-14-2017
+2025-04-25 21:55:43 - query_processor - DEBUG - Preprocessing query: orders processed between Jan-15-2016 and Jan-14-2017
+2025-04-25 21:55:43 - query_processor - DEBUG - Preprocessed query: order process jan-15 2016 jan-14 2017
+2025-04-25 21:55:43 - nlp_pipeline - DEBUG - Processing query: order process jan-15 2016 jan-14 2017
+2025-04-25 21:55:43 - nlp_pipeline - DEBUG - Preprocessed query: order process
+2025-04-25 21:55:43 - table_identifier - DEBUG - Identifying tables for query: order process
+2025-04-25 21:55:43 - patterns - DEBUG - Matching patterns for query: order process
+2025-04-25 21:55:43 - patterns - DEBUG - Pattern matches: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items']
+2025-04-25 21:55:43 - table_identifier - DEBUG - Pattern matched tables: ['sales.stores', 'production.stocks', 'production.products', 'hr.candidates', 'sales.staffs', 'sales.orders', 'sales.customers', 'production.brands', 'hr.employees', 'production.categories', 'sales.order_items'], confidence: 0.9
+2025-04-25 21:55:43 - name_match_manager - DEBUG - Matching query: order process
+2025-04-25 21:55:44 - name_match_manager - DEBUG - Name matches for query 'order process': {'production.products': 8.100000000000001, 'production.stocks': 4.5, 'sales.stores': 12.600000000000003, 'sales.customers': 1.8, 'production.categories': 6.300000000000001, 'production.brands': 4.5, 'product': 0.9999999630095358}
+2025-04-25 21:55:44 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories', 'production.brands', 'product'], confidence: 12.600000000000003
+2025-04-25 21:55:44 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-25 21:55:44 - table_identifier - DEBUG - Final tables: ['sales.stores', 'product', 'production.products', 'production.brands', 'production.categories'], confidence: 10.013679374999999
+2025-04-25 21:55:44 - query_processor - DEBUG - Identified tables: ['sales.stores', 'product', 'production.products', 'production.brands', 'production.categories'], confidence: 10.013679374999999
+2025-04-25 21:55:44 - analyzer - DEBUG - Query: orders processed between Jan-15-2016 and Jan-14-2017, Tables: ['sales.stores', 'product', 'production.products', 'production.brands', 'production.categories'], Confidence: 10.013679374999999
+2025-04-25 21:55:44 - interface - INFO - Suggested tables for query 'orders processed between Jan-15-2016 and Jan-14-2017': ['sales.stores', 'product', 'production.products', 'production.brands', 'production.categories'], confidence: 10.013679374999999
+2025-04-25 21:55:44 - interface - DEBUG - Handling feedback for query: orders processed between Jan-15-2016 and Jan-14-2017
+2025-04-25 21:55:50 - interface - INFO - User rejected tables for query 'orders processed between Jan-15-2016 and Jan-14-2017': ['sales.stores', 'product', 'production.products', 'production.brands', 'production.categories']
+2025-04-25 21:55:50 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:55:53 - interface - DEBUG - Selected manual tables: ['sales.stores']
+2025-04-25 21:55:53 - interface - INFO - Updated feedback with tables: ['sales.stores']
+2025-04-25 21:55:53 - analyzer - DEBUG - Validated tables: Valid=['sales.stores'], Invalid=[]
+2025-04-25 21:55:53 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-25 21:55:53 - table_identifier - DEBUG - Increased weight for sales.stores to 3.2968374999999988
+2025-04-25 21:55:53 - table_identifier - DEBUG - Decreased weight for production.stocks to 0.5
+2025-04-25 21:55:53 - table_identifier - DEBUG - Decreased weight for production.products to 0.5780000000000001
+2025-04-25 21:55:53 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5
+2025-04-25 21:55:53 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.5
+2025-04-25 21:55:53 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.5
+2025-04-25 21:55:53 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.5
+2025-04-25 21:55:53 - table_identifier - DEBUG - Decreased weight for production.brands to 0.5780000000000001
+2025-04-25 21:55:53 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5
+2025-04-25 21:55:53 - table_identifier - DEBUG - Decreased weight for production.categories to 0.5780000000000001
+2025-04-25 21:55:53 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5
+2025-04-25 21:55:53 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 21:55:53 - table_identifier - DEBUG - Updating name matches for query: orders processed between Jan-15-2016 and Jan-14-2017
+2025-04-25 21:55:53 - name_match_manager - DEBUG - Updating synonyms for query: orders processed between Jan-15-2016 and Jan-14-2017, tables: ['sales.stores']
+2025-04-25 21:55:53 - name_match_manager - DEBUG - Added synonym 'process' for sales.stores
+2025-04-25 21:55:53 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 21:55:53 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-25 21:55:53 - name_match_manager - DEBUG - Updated synonyms for query: orders processed between jan-15-2016 and jan-14-2017, terms: ['order', 'process'], tables: ['sales.stores']
+2025-04-25 21:55:53 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-25 21:55:53 - patterns - DEBUG - Added pattern [{'LOWER': 'process'}] for sales.stores
+2025-04-25 21:55:53 - patterns - DEBUG - Added keyword 'process' to intent 'name' for sales.stores
+2025-04-25 21:55:53 - patterns - DEBUG - Added keyword 'process' to intent 'details' for sales.stores
+2025-04-25 21:55:53 - patterns - DEBUG - Added keyword 'process' to intent 'stock' for sales.stores
+2025-04-25 21:55:53 - patterns - DEBUG - Added keyword 'process' to intent 'category' for sales.stores
+2025-04-25 21:55:53 - patterns - DEBUG - Added keyword 'process' to intent 'order' for sales.stores
+2025-04-25 21:55:53 - patterns - DEBUG - Added keyword 'process' to intent 'brand' for sales.stores
+2025-04-25 21:55:53 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-25 21:55:53 - analyzer - INFO - Updated feedback for query: orders processed between Jan-15-2016 and Jan-14-2017
+2025-04-25 22:19:11 - interface - DEBUG - Exiting query mode
+2025-04-25 22:19:19 - analyzer - DEBUG - Reloading configurations for BikeStores
+2025-04-25 22:19:19 - schema - DEBUG - Detected database type: sqlserver, version: microsoft sql server 2022 (rtm-gdr) (kb5046861) - 16.0.1135.2 (x64) 
+	oct 18 2024 15:31:58 
+	copyright (c) 2022 microsoft corporation
+	developer edition (64-bit) on windows 10 pro for workstations 10.0 <x64> (build 19045: ) (hypervisor)
+
+2025-04-25 22:19:19 - schema - DEBUG - Schema validation completed
+2025-04-25 22:19:19 - schema - DEBUG - Saved schema to schema_cache\BikeStores\schema.json
+2025-04-25 22:19:21 - patterns - DEBUG - Loaded patterns from Redis for BikeStores
+2025-04-25 22:19:21 - patterns - DEBUG - Loaded entities from Redis for BikeStores
+2025-04-25 22:19:21 - patterns - DEBUG - Initialized PatternManager for BikeStores with 11 patterns
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Added patterns for table 'production.categories'
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Added patterns for table 'production.brands'
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Added patterns for table 'production.products'
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Added patterns for table 'production.stocks'
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Added patterns for table 'sales.customers'
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Added patterns for table 'sales.stores'
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Added patterns for table 'sales.staffs'
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Added patterns for table 'sales.orders'
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Added patterns for table 'sales.order_items'
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Added patterns for table 'hr.candidates'
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Added patterns for table 'hr.employees'
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Patterns loaded
+2025-04-25 22:19:23 - nlp_pipeline - DEBUG - Initialized NLPPipeline
+2025-04-25 22:19:25 - name_match_manager - DEBUG - Loaded 27 valid synonyms from app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 22:19:25 - name_match_manager - DEBUG - Loaded matches from Redis for BikeStores
+2025-04-25 22:19:25 - name_match_manager - DEBUG - Initialized NameMatchManager for BikeStores
+2025-04-25 22:19:26 - table_identifier - DEBUG - Loaded weights from Redis for BikeStores
+2025-04-25 22:19:26 - table_identifier - DEBUG - Loaded 5 training records
+2025-04-25 22:19:26 - table_identifier - DEBUG - Initialized TableIdentifier
+2025-04-25 22:19:27 - query_processor - DEBUG - Loaded stopwords for BikeStores
+2025-04-25 22:19:27 - query_processor - DEBUG - Initialized QueryProcessor
+2025-04-25 22:19:27 - analyzer - INFO - Configurations reloaded successfully
+2025-04-25 22:19:27 - interface - INFO - Successfully reloaded configurations
+2025-04-25 22:20:29 - feedback_manager - ERROR - Error exporting feedback: [Errno 13] Permission denied: 'D:/Github/TableIdentifier-v2.1/'
+2025-04-25 22:20:29 - interface - INFO - Feedback exported to D:/Github/TableIdentifier-v2.1/
+2025-04-25 22:20:54 - interface - INFO - Exiting application
+2025-04-25 22:20:54 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 22:20:54 - table_identifier - DEBUG - Saved model to models/BikeStores_model.json
+2025-04-25 22:20:54 - connection - INFO - Closing database connection
+2025-04-25 22:20:54 - analyzer - INFO - Application shutdown
+2025-04-25 22:22:30 - analyzer - DEBUG - Initialized DatabaseAnalyzer with SpaCy
+2025-04-25 22:22:31 - interface - DEBUG - Initialized DatabaseAnalyzerCLI
+2025-04-25 22:22:31 - interface - INFO - Starting Database Schema Analyzer
+2025-04-25 22:22:34 - interface - ERROR - Not connected to database for feedback management
+2025-04-25 22:22:46 - config - DEBUG - Initialized DBConfigManager
+2025-04-25 22:22:46 - config - DEBUG - Loaded configurations from app-config/database_configurations.json
+2025-04-25 22:22:46 - analyzer - DEBUG - Loaded 3 valid configurations
+2025-04-25 22:22:49 - analyzer - DEBUG - Set config: BikeStores
+2025-04-25 22:22:49 - interface - DEBUG - Selected configuration: BikeStores
+2025-04-25 22:22:49 - connection - DEBUG - Initialized DatabaseConnection
+2025-04-25 22:22:49 - connection - INFO - Connected to database: BikeStores with driver ODBC Driver 17 for SQL Server
+2025-04-25 22:22:49 - analyzer - DEBUG - Initializing managers for BikeStores
+2025-04-25 22:22:49 - schema - DEBUG - Initialized SchemaManager for BikeStores
+2025-04-25 22:22:49 - schema - INFO - SchemaManager version: 2025-04-25 with enhanced database support
+2025-04-25 22:22:49 - schema - DEBUG - Detected database type: sqlserver, version: microsoft sql server 2022 (rtm-gdr) (kb5046861) - 16.0.1135.2 (x64) 
+	oct 18 2024 15:31:58 
+	copyright (c) 2022 microsoft corporation
+	developer edition (64-bit) on windows 10 pro for workstations 10.0 <x64> (build 19045: ) (hypervisor)
+
+2025-04-25 22:22:49 - schema - DEBUG - Executing SQL Server schema mtime query: 
+                    SELECT MAX(last_update)
+                    FROM (
+                        SELECT MAX(create_date) as last_update
+                        FROM sys.objects
+                        WHERE type = 'U' AND schema_name(schema_id) NOT IN ('information_schema','sys','dbo','pg_catalog')
+                        UNION
+                        SELECT MAX(modify_date)
+                        FROM sys.objects
+                        WHERE type = 'U' AND schema_name(schema_id) NOT IN ('information_schema','sys','dbo','pg_catalog')
+                    ) AS t
+                
+2025-04-25 22:22:49 - schema - DEBUG - Schema mtime retrieved: 1744127195.583
+2025-04-25 22:22:49 - schema - DEBUG - Latest schema change: 1744127195.583, Cache mtime: 1745599759.8826473
+2025-04-25 22:22:49 - analyzer - DEBUG - Loading schema from cache
+2025-04-25 22:22:49 - schema - DEBUG - Schema validation completed
+2025-04-25 22:22:49 - schema - DEBUG - Loaded schema from schema_cache\BikeStores\schema.json
+2025-04-25 22:22:50 - patterns - DEBUG - Loaded patterns from Redis for BikeStores
+2025-04-25 22:22:50 - patterns - DEBUG - Loaded entities from Redis for BikeStores
+2025-04-25 22:22:50 - patterns - DEBUG - Initialized PatternManager for BikeStores with 11 patterns
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Added patterns for table 'production.categories'
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Added patterns for table 'production.brands'
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Added patterns for table 'production.products'
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Added patterns for table 'production.stocks'
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Added patterns for table 'sales.customers'
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Added patterns for table 'sales.stores'
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Added patterns for table 'sales.staffs'
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Added patterns for table 'sales.orders'
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Added patterns for table 'sales.order_items'
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Added patterns for table 'hr.candidates'
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Added patterns for table 'hr.employees'
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Patterns loaded
+2025-04-25 22:22:53 - nlp_pipeline - DEBUG - Initialized NLPPipeline
+2025-04-25 22:22:54 - name_match_manager - DEBUG - Loaded 27 valid synonyms from app-config/BikeStores/BikeStores_synonyms.json
+2025-04-25 22:22:54 - name_match_manager - DEBUG - Loaded matches from Redis for BikeStores
+2025-04-25 22:22:54 - name_match_manager - DEBUG - Initialized NameMatchManager for BikeStores
+2025-04-25 22:22:55 - table_identifier - DEBUG - Loaded weights from Redis for BikeStores
+2025-04-25 22:22:55 - table_identifier - DEBUG - Loaded 5 training records
+2025-04-25 22:22:55 - table_identifier - DEBUG - Initialized TableIdentifier
+2025-04-25 22:22:57 - query_processor - DEBUG - Loaded stopwords for BikeStores
+2025-04-25 22:22:57 - query_processor - DEBUG - Initialized QueryProcessor
+2025-04-25 22:22:57 - analyzer - DEBUG - Managers initialized successfully
+2025-04-25 22:22:57 - analyzer - INFO - Connected to BikeStores
+2025-04-25 22:22:57 - interface - INFO - Successfully connected to database
+2025-04-25 22:24:23 - feedback_manager - INFO - Exported feedback to D:\\Github\\TableIdentifier-v2.1\\feedback_cache\\export
+2025-04-25 22:24:23 - interface - INFO - Feedback exported to D:\\Github\\TableIdentifier-v2.1\\feedback_cache\\export
+2025-04-25 22:25:20 - interface - INFO - Exiting application
+2025-04-25 22:25:20 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-25 22:25:20 - table_identifier - DEBUG - Saved model to models/BikeStores_model.json
+2025-04-25 22:25:20 - connection - INFO - Closing database connection
+2025-04-25 22:25:20 - analyzer - INFO - Application shutdown

@@ -1,0 +1,1 @@
+{"weights": {"production.categories": 0.5780000000000001, "production.brands": 0.5780000000000001, "production.products": 0.5780000000000001, "production.stocks": 0.5, "sales.customers": 0.5, "sales.stores": 3.2968374999999988, "sales.staffs": 0.5, "sales.orders": 0.5, "sales.order_items": 0.5, "hr.candidates": 0.5, "hr.employees": 0.5}}

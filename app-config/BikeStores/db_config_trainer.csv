@@ -1,0 +1,6 @@
+DB_Config,Schema,Table_Name,Primary_Keys,Foreign_Keys,Associated_Tables,Associated_Views,Description,Columns_List
+BIKES_DB,sales,stores,store_id,,"sales.orders",,"Stores information about retail locations","store_id,store_name,city,state,zip_code"
+BIKES_DB,sales,orders,order_id,"store_id->sales.stores.store_id","sales.order_items",,"Tracks customer orders","order_id,customer_id,order_status,order_date,required_date,shipped_date,store_id,staff_id"
+BIKES_DB,sales,order_items,"order_id,item_id","order_id->sales.orders.order_id","production.products",,"Details items in each order","order_id,item_id,product_id,quantity,list_price,discount"
+BIKES_DB,production,products,product_id,,"sales.order_items",,"Stores product details","product_id,product_name,brand_id,category_id,model_year,list_price"
+BIKES_DB,production,stocks,"store_id,product_id","store_id->sales.stores.store_id,product_id->production.products.product_id",,,"Tracks product inventory","store_id,product_id,quantity"

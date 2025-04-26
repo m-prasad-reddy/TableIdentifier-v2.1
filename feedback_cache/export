@@ -1,0 +1,448 @@
+{
+  "feedback": [
+    {
+      "query": "Show me all stores with store names",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "List all products with prices",
+      "tables": [
+        "production.products"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "how many orders were delivered in 2016",
+      "tables": [
+        "sales.orders"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "orders processed between Jan-15-2016 and Jan-14-2017",
+      "tables": [
+        "sales.orders"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "how many employees works for all stores",
+      "tables": [
+        "sales.stores",
+        "sales.staffs"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "how many employees works for all stores",
+      "tables": [
+        "sales.stores",
+        "sales.staffs"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "List all products with prices",
+      "tables": [
+        "production.products"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES",
+      "tables": [
+        "production.products",
+        "production.stocks",
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS",
+      "tables": [
+        "production.products",
+        "production.stocks",
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "Show me customer names",
+      "tables": [
+        "sales.customers"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "what production categories are available",
+      "tables": [
+        "production.categories"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "get me store details of Baldwin Bikes",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "total sales amount at storename 'Baldwin Bikes'",
+      "tables": [
+        "sales.stores",
+        "sales.orders",
+        "sales.order_items"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "total sales amount at storename=Baldwin Bikes",
+      "tables": [
+        "sales.stores",
+        "sales.orders",
+        "sales.order_items"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "total sales amount at storename 'Baldwin Bikes'",
+      "tables": [
+        "sales.stores",
+        "sales.orders",
+        "sales.order_items"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "stores in USA",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "stores in india",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "how many orders were delivered in 2016",
+      "tables": [
+        "sales.orders"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "list all products by categories and brand names",
+      "tables": [
+        "production.brands",
+        "production.categories",
+        "production.products"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "orders processed between Jan-15-2016 and Jan-14-2017",
+      "tables": [
+        "sales.orders"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "how many employees works for all stores",
+      "tables": [
+        "sales.staffs",
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "how much staff works for all stores",
+      "tables": [
+        "sales.staffs",
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "show me products",
+      "tables": [
+        "production.products"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "what products are available",
+      "tables": [
+        "production.products"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES",
+      "tables": [
+        "production.products",
+        "production.stocks",
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS",
+      "tables": [
+        "production.products",
+        "production.stocks",
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "Show me customer names",
+      "tables": [
+        "sales.customers"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "what production categories are available",
+      "tables": [
+        "production.categories"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "get me store details of Baldwin Bikes",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "total sales amount at storename 'Baldwin Bikes'",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "total sales amount at storename=Baldwin Bikes",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "total sales amount at storename 'Baldwin Bikes'",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "stores in india",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "stores in USA",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "list all products by categories and brand names",
+      "tables": [
+        "production.brands",
+        "production.categories",
+        "production.products"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "how many orders were delivered in 2016",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "orders processed between Jan-15-2016 and Jan-14-2017",
+      "tables": [
+        "sales.orders"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "how many employees works for all stores",
+      "tables": [
+        "sales.staffs",
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "how much staff works for all stores",
+      "tables": [
+        "sales.staffs",
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "stores in USA",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "stores in India",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "Show me customer names",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "how many employees works for all stores",
+      "tables": [
+        "sales.stores",
+        "sales.staffs"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES",
+      "tables": [
+        "production.products",
+        "production.stocks",
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS",
+      "tables": [
+        "production.products",
+        "production.stocks",
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "Show me customer names",
+      "tables": [
+        "sales.customers"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "what production categories are available",
+      "tables": [
+        "production.categories"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "get me store details of Baldwin Bikes",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "total sales amount at storename 'Baldwin Bikes'",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "total sales amount at storename=Baldwin Bikes",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "total sales amount at storename 'Baldwin Bikes'",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "stores in india",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "stores in USA",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "list all products by categories and brand names",
+      "tables": [
+        "production.categories",
+        "production.brands",
+        "production.products"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "how many orders were delivered in 2016",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    },
+    {
+      "query": "orders processed between Jan-15-2016 and Jan-14-2017",
+      "tables": [
+        "sales.stores"
+      ],
+      "weight": 1.0
+    }
+  ],
+  "query_counts": {
+    "Show me all stores with store names": 1,
+    "List all products with prices": 2,
+    "show me products": 1,
+    "what products are available": 1,
+    "how much staff works for all stores": 2,
+    "stores in India": 1,
+    "how many employees works for all stores": 5,
+    "SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES": 3,
+    "SHOW ME PRODUCTS STOCK AVAILABILITY AT ALL STORES WITH STORE DETAILS": 3,
+    "Show me customer names": 4,
+    "what production categories are available": 3,
+    "get me store details of Baldwin Bikes": 3,
+    "total sales amount at storename=Baldwin Bikes": 3,
+    "total sales amount at storename 'Baldwin Bikes'": 6,
+    "stores in india": 3,
+    "stores in USA": 4,
+    "list all products by categories and brand names": 3,
+    "how many orders were delivered in 2016": 4,
+    "orders processed between Jan-15-2016 and Jan-14-2017": 4
+  }
+}

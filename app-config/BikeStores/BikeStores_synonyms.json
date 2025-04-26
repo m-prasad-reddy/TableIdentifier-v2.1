@@ -1,0 +1,165 @@
+{
+  "employee": [
+    "staff",
+    "sales.stores",
+    "personnel",
+    "worker",
+    "sales.staffs"
+  ],
+  "stock": [
+    "supply",
+    "inventory",
+    "quantity",
+    "production.stocks",
+    "sales.stores",
+    "production.products"
+  ],
+  "name": [
+    "production.categories",
+    "first_name",
+    "last_name",
+    "sales.customers",
+    "production.brands",
+    "full_name",
+    "production.products",
+    "sales.stores"
+  ],
+  "category": [
+    "production.brands",
+    "category_name",
+    "type",
+    "production.categories",
+    "production.products"
+  ],
+  "store": [
+    "shop",
+    "sales.stores",
+    "production.stocks",
+    "retail",
+    "sales.staffs",
+    "production.products",
+    "location"
+  ],
+  "order": [
+    "transaction",
+    "purchase",
+    "sales.orders",
+    "sale",
+    "sales.stores"
+  ],
+  "product": [
+    "production.brands",
+    "item",
+    "production.stocks",
+    "sales.stores",
+    "production.products",
+    "production.categories",
+    "good",
+    "merchandise"
+  ],
+  "availability": [
+    "production.stocks",
+    "production.products",
+    "sales.stores"
+  ],
+  "detail": [
+    "production.stocks",
+    "production.products",
+    "sales.stores"
+  ],
+  "customer": [
+    "sales.customers",
+    "sales.stores"
+  ],
+  "production": [
+    "production.categories"
+  ],
+  "baldwin": [
+    "sales.stores"
+  ],
+  "bike": [
+    "sales.stores"
+  ],
+  "sale": [
+    "sales.stores"
+  ],
+  "storename": [
+    "sales.stores"
+  ],
+  "india": [
+    "sales.stores"
+  ],
+  "usa": [
+    "sales.stores"
+  ],
+  "brand": [
+    "production.categories",
+    "production.brands",
+    "production.products"
+  ],
+  "jan-15": [
+    "sales.orders"
+  ],
+  "jan-14": [
+    "sales.orders"
+  ],
+  "staff": [
+    "sales.stores",
+    "sales.staffs"
+  ],
+  "production.products": [
+    "product",
+    "stock",
+    "availability",
+    "store",
+    "detail",
+    "list",
+    "category",
+    "brand",
+    "name"
+  ],
+  "production.stocks": [
+    "product",
+    "stock",
+    "availability",
+    "store",
+    "detail"
+  ],
+  "sales.stores": [
+    "product",
+    "stock",
+    "availability",
+    "store",
+    "detail",
+    "baldwin",
+    "bike",
+    "total",
+    "sale",
+    "storename",
+    "india",
+    "usa",
+    "order",
+    "deliver",
+    "process"
+  ],
+  "sales.customers": [
+    "customer",
+    "name"
+  ],
+  "production.categories": [
+    "production",
+    "category",
+    "available",
+    "list",
+    "product",
+    "brand",
+    "name"
+  ],
+  "production.brands": [
+    "list",
+    "product",
+    "category",
+    "brand",
+    "name"
+  ]
+}

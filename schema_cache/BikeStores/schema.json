@@ -1,0 +1,610 @@
+{
+  "tables": {
+    "production": [
+      "categories",
+      "brands",
+      "products",
+      "stocks"
+    ],
+    "sales": [
+      "customers",
+      "stores",
+      "staffs",
+      "orders",
+      "order_items"
+    ],
+    "hr": [
+      "candidates",
+      "employees"
+    ]
+  },
+  "columns": {
+    "production": {
+      "categories": {
+        "category_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "category_name": {
+          "type": "varchar",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        }
+      },
+      "brands": {
+        "brand_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "brand_name": {
+          "type": "varchar",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        }
+      },
+      "products": {
+        "product_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "product_name": {
+          "type": "varchar",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "brand_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": true
+        },
+        "category_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": true
+        },
+        "model_year": {
+          "type": "smallint",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "list_price": {
+          "type": "decimal",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        }
+      },
+      "stocks": {
+        "store_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "product_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "quantity": {
+          "type": "int",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        }
+      }
+    },
+    "sales": {
+      "customers": {
+        "customer_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "first_name": {
+          "type": "varchar",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "last_name": {
+          "type": "varchar",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "phone": {
+          "type": "varchar",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "email": {
+          "type": "varchar",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "street": {
+          "type": "varchar",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "city": {
+          "type": "varchar",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "state": {
+          "type": "varchar",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "zip_code": {
+          "type": "varchar",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        }
+      },
+      "stores": {
+        "store_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "store_name": {
+          "type": "varchar",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "phone": {
+          "type": "varchar",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "email": {
+          "type": "varchar",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "street": {
+          "type": "varchar",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "city": {
+          "type": "varchar",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "state": {
+          "type": "varchar",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "zip_code": {
+          "type": "varchar",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        }
+      },
+      "staffs": {
+        "staff_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "first_name": {
+          "type": "varchar",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "last_name": {
+          "type": "varchar",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "email": {
+          "type": "varchar",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "phone": {
+          "type": "varchar",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "active": {
+          "type": "tinyint",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "store_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": true
+        },
+        "manager_id": {
+          "type": "int",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": true
+        }
+      },
+      "orders": {
+        "order_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "customer_id": {
+          "type": "int",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": true
+        },
+        "order_status": {
+          "type": "tinyint",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "order_date": {
+          "type": "date",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "required_date": {
+          "type": "date",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "shipped_date": {
+          "type": "date",
+          "nullable": true,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "store_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": true
+        },
+        "staff_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": true
+        }
+      },
+      "order_items": {
+        "order_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "item_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "product_id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": true
+        },
+        "quantity": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "list_price": {
+          "type": "decimal",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        },
+        "discount": {
+          "type": "decimal",
+          "nullable": false,
+          "default": "((0))",
+          "is_primary_key": false,
+          "is_foreign_key": false
+        }
+      }
+    },
+    "hr": {
+      "candidates": {
+        "id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "fullname": {
+          "type": "varchar",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        }
+      },
+      "employees": {
+        "id": {
+          "type": "int",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": true,
+          "is_foreign_key": false
+        },
+        "fullname": {
+          "type": "varchar",
+          "nullable": false,
+          "default": null,
+          "is_primary_key": false,
+          "is_foreign_key": false
+        }
+      }
+    }
+  },
+  "indexes": {
+    "production": {
+      "categories": [
+        {
+          "index_name": "PK__categori__D54EE9B444E69120",
+          "column": "category_id"
+        }
+      ],
+      "brands": [
+        {
+          "index_name": "PK__brands__5E5A8E278D0ED369",
+          "column": "brand_id"
+        }
+      ],
+      "products": [
+        {
+          "index_name": "PK__products__47027DF58131DCD4",
+          "column": "product_id"
+        }
+      ],
+      "stocks": [
+        {
+          "index_name": "PK__stocks__E68284D36B1CDE5F",
+          "column": "store_id"
+        },
+        {
+          "index_name": "PK__stocks__E68284D36B1CDE5F",
+          "column": "product_id"
+        }
+      ]
+    },
+    "sales": {
+      "customers": [
+        {
+          "index_name": "PK__customer__CD65CB85FCA4AA5E",
+          "column": "customer_id"
+        }
+      ],
+      "stores": [
+        {
+          "index_name": "PK__stores__A2F2A30CE954D612",
+          "column": "store_id"
+        }
+      ],
+      "staffs": [
+        {
+          "index_name": "PK__staffs__1963DD9C07623F77",
+          "column": "staff_id"
+        },
+        {
+          "index_name": "UQ__staffs__AB6E6164EB653B25",
+          "column": "email"
+        }
+      ],
+      "orders": [
+        {
+          "index_name": "PK__orders__46596229BB08BD29",
+          "column": "order_id"
+        }
+      ],
+      "order_items": [
+        {
+          "index_name": "PK__order_it__837942D4C6A06D12",
+          "column": "order_id"
+        },
+        {
+          "index_name": "PK__order_it__837942D4C6A06D12",
+          "column": "item_id"
+        }
+      ]
+    },
+    "hr": {
+      "candidates": [
+        {
+          "index_name": "PK__candidat__3213E83F6A385E79",
+          "column": "id"
+        }
+      ],
+      "employees": [
+        {
+          "index_name": "PK__employee__3213E83F31AE8989",
+          "column": "id"
+        }
+      ]
+    }
+  },
+  "foreign_keys": {
+    "production": {
+      "products": [
+        {
+          "column": "brand_id",
+          "referenced_table": "production.products",
+          "referenced_column": "brand_id"
+        },
+        {
+          "column": "category_id",
+          "referenced_table": "production.products",
+          "referenced_column": "category_id"
+        }
+      ],
+      "stocks": [
+        {
+          "column": "product_id",
+          "referenced_table": "production.stocks",
+          "referenced_column": "product_id"
+        },
+        {
+          "column": "store_id",
+          "referenced_table": "production.stocks",
+          "referenced_column": "store_id"
+        }
+      ],
+      "categories": [],
+      "brands": []
+    },
+    "sales": {
+      "order_items": [
+        {
+          "column": "order_id",
+          "referenced_table": "sales.order_items",
+          "referenced_column": "order_id"
+        },
+        {
+          "column": "product_id",
+          "referenced_table": "sales.order_items",
+          "referenced_column": "product_id"
+        }
+      ],
+      "orders": [
+        {
+          "column": "customer_id",
+          "referenced_table": "sales.orders",
+          "referenced_column": "customer_id"
+        },
+        {
+          "column": "staff_id",
+          "referenced_table": "sales.orders",
+          "referenced_column": "staff_id"
+        },
+        {
+          "column": "store_id",
+          "referenced_table": "sales.orders",
+          "referenced_column": "store_id"
+        }
+      ],
+      "staffs": [
+        {
+          "column": "manager_id",
+          "referenced_table": "sales.staffs",
+          "referenced_column": "manager_id"
+        },
+        {
+          "column": "store_id",
+          "referenced_table": "sales.staffs",
+          "referenced_column": "store_id"
+        }
+      ],
+      "customers": [],
+      "stores": []
+    },
+    "hr": {
+      "candidates": [],
+      "employees": []
+    }
+  },
+  "views": {},
+  "version": "1.1"
+}
