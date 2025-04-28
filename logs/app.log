@@ -1,0 +1,189 @@
+console log:
+
+app.log:
+2025-04-26 16:39:59 - analyzer - DEBUG - Initialized DatabaseAnalyzer with SpaCy
+2025-04-26 16:40:00 - interface - DEBUG - Initialized DatabaseAnalyzerCLI
+2025-04-26 16:40:00 - interface - INFO - Starting Database Schema Analyzer
+2025-04-26 16:42:56 - config - DEBUG - Initialized DBConfigManager
+2025-04-26 16:42:56 - config - DEBUG - Loaded configurations from app-config/database_configurations.json
+2025-04-26 16:42:56 - analyzer - DEBUG - Loaded 3 valid configurations
+2025-04-26 16:42:58 - analyzer - DEBUG - Set config: BikeStores
+2025-04-26 16:42:58 - interface - DEBUG - Selected configuration: BikeStores
+2025-04-26 16:42:58 - connection - DEBUG - Initialized DatabaseConnection
+2025-04-26 16:42:58 - connection - INFO - Connected to database: BikeStores with driver ODBC Driver 17 for SQL Server
+2025-04-26 16:42:58 - analyzer - DEBUG - Initializing managers for BikeStores
+2025-04-26 16:42:58 - schema - DEBUG - Initialized SchemaManager for BikeStores
+2025-04-26 16:42:58 - schema - INFO - SchemaManager version: 2025-04-25 with enhanced database support
+2025-04-26 16:42:58 - schema - DEBUG - Detected database type: sqlserver, version: microsoft sql server 2022 (rtm-gdr) (kb5046861) - 16.0.1135.2 (x64) 
+	oct 18 2024 15:31:58 
+	copyright (c) 2022 microsoft corporation
+	developer edition (64-bit) on windows 10 pro for workstations 10.0 <x64> (build 19045: ) (hypervisor)
+
+2025-04-26 16:42:58 - schema - DEBUG - Executing SQL Server schema mtime query: 
+                    SELECT MAX(last_update)
+                    FROM (
+                        SELECT MAX(create_date) as last_update
+                        FROM sys.objects
+                        WHERE type = 'U' AND schema_name(schema_id) NOT IN ('information_schema','sys','dbo','pg_catalog')
+                        UNION
+                        SELECT MAX(modify_date)
+                        FROM sys.objects
+                        WHERE type = 'U' AND schema_name(schema_id) NOT IN ('information_schema','sys','dbo','pg_catalog')
+                    ) AS t
+                
+2025-04-26 16:42:58 - schema - DEBUG - Schema mtime retrieved: 1744127195.583
+2025-04-26 16:42:58 - schema - DEBUG - Latest schema change: 1744127195.583, Cache mtime: 1745599759.8826473
+2025-04-26 16:42:58 - analyzer - DEBUG - Loading schema from cache
+2025-04-26 16:42:58 - schema - DEBUG - Schema validation completed
+2025-04-26 16:42:58 - schema - DEBUG - Loaded schema from schema_cache\BikeStores\schema.json
+2025-04-26 16:43:00 - patterns - DEBUG - Loaded patterns from Redis for BikeStores
+2025-04-26 16:43:00 - patterns - DEBUG - Loaded entities from Redis for BikeStores
+2025-04-26 16:43:00 - patterns - DEBUG - Initialized PatternManager for BikeStores with 11 patterns
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Added patterns for table 'production.categories'
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Added patterns for table 'production.brands'
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Added patterns for table 'production.products'
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Added patterns for table 'production.stocks'
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Added patterns for table 'sales.customers'
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Added patterns for table 'sales.stores'
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Added patterns for table 'sales.staffs'
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Added patterns for table 'sales.orders'
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Added patterns for table 'sales.order_items'
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Added patterns for table 'hr.candidates'
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Added patterns for table 'hr.employees'
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Patterns loaded
+2025-04-26 16:43:03 - nlp_pipeline - DEBUG - Initialized NLPPipeline
+2025-04-26 16:43:04 - name_match_manager - DEBUG - Loaded 27 valid synonyms from app-config/BikeStores/BikeStores_synonyms.json
+2025-04-26 16:43:04 - name_match_manager - DEBUG - Loaded matches from Redis for BikeStores
+2025-04-26 16:43:04 - name_match_manager - DEBUG - Initialized NameMatchManager for BikeStores
+2025-04-26 16:43:05 - table_identifier - DEBUG - Loaded weights from Redis for BikeStores
+2025-04-26 16:43:05 - table_identifier - DEBUG - Loaded 5 training records
+2025-04-26 16:43:05 - table_identifier - DEBUG - Initialized TableIdentifier
+2025-04-26 16:43:07 - query_processor - DEBUG - Loaded stopwords for BikeStores
+2025-04-26 16:43:07 - query_processor - DEBUG - Initialized QueryProcessor
+2025-04-26 16:43:07 - analyzer - DEBUG - Managers initialized successfully
+2025-04-26 16:43:07 - analyzer - INFO - Connected to BikeStores
+2025-04-26 16:43:07 - interface - INFO - Successfully connected to database
+2025-04-26 16:43:34 - interface - DEBUG - Validating query: stores in USA
+2025-04-26 16:43:34 - query_processor - DEBUG - Processing query: stores in USA
+2025-04-26 16:43:34 - query_processor - DEBUG - Preprocessing query: stores in USA
+2025-04-26 16:43:34 - query_processor - DEBUG - Preprocessed query: store usa
+2025-04-26 16:43:34 - nlp_pipeline - DEBUG - Processing query: store usa
+2025-04-26 16:43:34 - nlp_pipeline - DEBUG - Preprocessed query: production.products production.stocks sales.stores sales.staffs sales.stores
+2025-04-26 16:43:34 - table_identifier - DEBUG - Identifying tables for query: production.products production.stocks sales.stores sales.staffs sales.stores
+2025-04-26 16:43:34 - patterns - DEBUG - Matching patterns for query: production.products production.stocks sales.stores sales.staffs sales.stores
+2025-04-26 16:43:34 - patterns - DEBUG - Pattern matches: ['sales.customers', 'sales.orders', 'sales.order_items', 'sales.staffs', 'production.products', 'production.stocks', 'production.brands', 'sales.stores', 'production.categories']
+2025-04-26 16:43:34 - table_identifier - DEBUG - Pattern matched tables: ['sales.customers', 'sales.orders', 'sales.order_items', 'sales.staffs', 'production.products', 'production.stocks', 'production.brands', 'sales.stores', 'production.categories'], confidence: 0.9
+2025-04-26 16:43:34 - name_match_manager - DEBUG - Matching query: production.products production.stocks sales.stores sales.staffs sales.stores
+2025-04-26 16:43:34 - name_match_manager - DEBUG - Name matches for query 'production.products production.stocks sales.stores sales.staffs sales.stores': {'production.products': 8.100000000000001, 'production.stocks': 4.5, 'sales.stores': 13.500000000000004, 'sales.customers': 1.8, 'production.categories': 6.300000000000001, 'production.brands': 4.5}
+2025-04-26 16:43:34 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories', 'production.brands'], confidence: 13.500000000000004
+2025-04-26 16:43:34 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-26 16:43:34 - table_identifier - DEBUG - Final tables: ['sales.stores', 'production.products', 'production.brands', 'production.categories', 'sales.customers'], confidence: 11.296256250000003
+2025-04-26 16:43:34 - query_processor - DEBUG - Identified tables: ['sales.stores', 'production.products', 'production.brands', 'production.categories', 'sales.customers'], confidence: 11.296256250000003
+2025-04-26 16:43:34 - analyzer - DEBUG - Query: stores in USA, Tables: ['sales.stores', 'production.products', 'production.brands', 'production.categories', 'sales.customers'], Confidence: 11.296256250000003
+2025-04-26 16:43:34 - interface - INFO - Suggested tables for query 'stores in USA': ['sales.stores', 'production.products', 'production.brands', 'production.categories', 'sales.customers'], confidence: 11.296256250000003
+2025-04-26 16:43:34 - interface - DEBUG - Handling feedback for query: stores in USA
+2025-04-26 16:43:47 - interface - INFO - User rejected tables for query 'stores in USA': ['sales.stores', 'production.products', 'production.brands', 'production.categories', 'sales.customers']
+2025-04-26 16:43:47 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-26 16:44:10 - interface - DEBUG - Selected manual tables: ['sales.orders']
+2025-04-26 16:44:10 - interface - INFO - Updated feedback with tables: ['sales.orders']
+2025-04-26 16:44:10 - analyzer - DEBUG - Validated tables: Valid=['sales.orders'], Invalid=[]
+2025-04-26 16:44:10 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-26 16:44:10 - table_identifier - DEBUG - Increased weight for sales.orders to 0.8
+2025-04-26 16:44:10 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.5
+2025-04-26 16:44:10 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5
+2025-04-26 16:44:10 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5
+2025-04-26 16:44:10 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5
+2025-04-26 16:44:10 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.5
+2025-04-26 16:44:10 - table_identifier - DEBUG - Decreased weight for production.products to 0.5
+2025-04-26 16:44:10 - table_identifier - DEBUG - Decreased weight for production.stocks to 0.5
+2025-04-26 16:44:10 - table_identifier - DEBUG - Decreased weight for production.brands to 0.5
+2025-04-26 16:44:10 - table_identifier - DEBUG - Decreased weight for sales.stores to 2.8023118749999987
+2025-04-26 16:44:10 - table_identifier - DEBUG - Decreased weight for production.categories to 0.5
+2025-04-26 16:44:10 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-26 16:44:10 - table_identifier - DEBUG - Updating name matches for query: stores in USA
+2025-04-26 16:44:10 - name_match_manager - DEBUG - Updating synonyms for query: stores in USA, tables: ['sales.orders']
+2025-04-26 16:44:10 - name_match_manager - DEBUG - Added synonym 'store' for sales.orders
+2025-04-26 16:44:10 - name_match_manager - DEBUG - Added synonym 'usa' for sales.orders
+2025-04-26 16:44:10 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-26 16:44:10 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-26 16:44:10 - name_match_manager - DEBUG - Updated synonyms for query: stores in usa, terms: ['store', 'usa'], tables: ['sales.orders']
+2025-04-26 16:44:10 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-26 16:44:10 - patterns - DEBUG - Added pattern [{'LOWER': 'store'}] for sales.orders
+2025-04-26 16:44:10 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-26 16:44:10 - analyzer - INFO - Updated feedback for query: stores in USA
+2025-04-26 16:44:17 - interface - DEBUG - Validating query: stores in India
+2025-04-26 16:44:17 - query_processor - DEBUG - Processing query: stores in India
+2025-04-26 16:44:17 - query_processor - DEBUG - Preprocessing query: stores in India
+2025-04-26 16:44:17 - query_processor - DEBUG - Preprocessed query: store india
+2025-04-26 16:44:17 - nlp_pipeline - DEBUG - Processing query: store india
+2025-04-26 16:44:17 - nlp_pipeline - DEBUG - Preprocessed query: production.products production.stocks sales.stores sales.staffs sales.stores
+2025-04-26 16:44:17 - table_identifier - DEBUG - Identifying tables for query: production.products production.stocks sales.stores sales.staffs sales.stores
+2025-04-26 16:44:17 - patterns - DEBUG - Matching patterns for query: production.products production.stocks sales.stores sales.staffs sales.stores
+2025-04-26 16:44:17 - patterns - DEBUG - Pattern matches: ['sales.customers', 'sales.orders', 'sales.order_items', 'sales.staffs', 'production.products', 'production.stocks', 'production.brands', 'sales.stores', 'production.categories']
+2025-04-26 16:44:17 - table_identifier - DEBUG - Pattern matched tables: ['sales.customers', 'sales.orders', 'sales.order_items', 'sales.staffs', 'production.products', 'production.stocks', 'production.brands', 'sales.stores', 'production.categories'], confidence: 0.9
+2025-04-26 16:44:17 - name_match_manager - DEBUG - Matching query: production.products production.stocks sales.stores sales.staffs sales.stores
+2025-04-26 16:44:17 - name_match_manager - DEBUG - Name matches for query 'production.products production.stocks sales.stores sales.staffs sales.stores': {'production.products': 8.100000000000001, 'production.stocks': 4.5, 'sales.stores': 13.500000000000004, 'sales.customers': 1.8, 'production.categories': 6.300000000000001, 'production.brands': 4.5, 'sales.orders': 1.8}
+2025-04-26 16:44:17 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories', 'production.brands', 'sales.orders'], confidence: 13.500000000000004
+2025-04-26 16:44:17 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-26 16:44:17 - table_identifier - DEBUG - Final tables: ['sales.stores', 'sales.orders', 'sales.customers', 'sales.order_items', 'sales.staffs'], confidence: 10.6534678125
+2025-04-26 16:44:17 - query_processor - DEBUG - Identified tables: ['sales.stores', 'sales.orders', 'sales.customers', 'sales.order_items', 'sales.staffs'], confidence: 10.6534678125
+2025-04-26 16:44:17 - analyzer - DEBUG - Query: stores in India, Tables: ['sales.stores', 'sales.orders', 'sales.customers', 'sales.order_items', 'sales.staffs'], Confidence: 10.6534678125
+2025-04-26 16:44:17 - interface - INFO - Suggested tables for query 'stores in India': ['sales.stores', 'sales.orders', 'sales.customers', 'sales.order_items', 'sales.staffs'], confidence: 10.6534678125
+2025-04-26 16:44:17 - interface - DEBUG - Handling feedback for query: stores in India
+2025-04-26 16:44:30 - interface - INFO - User rejected tables for query 'stores in India': ['sales.stores', 'sales.orders', 'sales.customers', 'sales.order_items', 'sales.staffs']
+2025-04-26 16:44:30 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-26 16:44:30 - interface - DEBUG - No manual tables selected
+2025-04-26 16:44:33 - interface - DEBUG - Validating query: 6
+2025-04-26 16:44:33 - interface - WARNING - Single-word query: 6
+2025-04-26 16:44:33 - interface - WARNING - Invalid query: 6
+2025-04-26 16:44:52 - interface - DEBUG - Validating query: stores in India
+2025-04-26 16:44:52 - query_processor - DEBUG - Processing query: stores in India
+2025-04-26 16:44:52 - query_processor - DEBUG - Preprocessing query: stores in India
+2025-04-26 16:44:52 - query_processor - DEBUG - Preprocessed query: store india
+2025-04-26 16:44:52 - nlp_pipeline - DEBUG - Processing query: store india
+2025-04-26 16:44:52 - nlp_pipeline - DEBUG - Preprocessed query: production.products production.stocks sales.stores sales.staffs sales.stores
+2025-04-26 16:44:52 - table_identifier - DEBUG - Identifying tables for query: production.products production.stocks sales.stores sales.staffs sales.stores
+2025-04-26 16:44:52 - patterns - DEBUG - Matching patterns for query: production.products production.stocks sales.stores sales.staffs sales.stores
+2025-04-26 16:44:52 - patterns - DEBUG - Pattern matches: ['sales.customers', 'sales.orders', 'sales.order_items', 'sales.staffs', 'production.products', 'production.stocks', 'production.brands', 'sales.stores', 'production.categories']
+2025-04-26 16:44:52 - table_identifier - DEBUG - Pattern matched tables: ['sales.customers', 'sales.orders', 'sales.order_items', 'sales.staffs', 'production.products', 'production.stocks', 'production.brands', 'sales.stores', 'production.categories'], confidence: 0.9
+2025-04-26 16:44:52 - name_match_manager - DEBUG - Matching query: production.products production.stocks sales.stores sales.staffs sales.stores
+2025-04-26 16:44:52 - name_match_manager - DEBUG - Name matches for query 'production.products production.stocks sales.stores sales.staffs sales.stores': {'production.products': 8.100000000000001, 'production.stocks': 4.5, 'sales.stores': 13.500000000000004, 'sales.customers': 1.8, 'production.categories': 6.300000000000001, 'production.brands': 4.5, 'sales.orders': 1.8}
+2025-04-26 16:44:52 - table_identifier - DEBUG - Name matched tables: ['production.products', 'production.stocks', 'sales.stores', 'sales.customers', 'production.categories', 'production.brands', 'sales.orders'], confidence: 13.500000000000004
+2025-04-26 16:44:52 - table_identifier - DEBUG - Feedback matched tables: [], confidence: 0.0
+2025-04-26 16:44:52 - table_identifier - DEBUG - Final tables: ['sales.stores', 'sales.orders', 'sales.customers', 'sales.order_items', 'sales.staffs'], confidence: 10.6534678125
+2025-04-26 16:44:52 - query_processor - DEBUG - Identified tables: ['sales.stores', 'sales.orders', 'sales.customers', 'sales.order_items', 'sales.staffs'], confidence: 10.6534678125
+2025-04-26 16:44:52 - analyzer - DEBUG - Query: stores in India, Tables: ['sales.stores', 'sales.orders', 'sales.customers', 'sales.order_items', 'sales.staffs'], Confidence: 10.6534678125
+2025-04-26 16:44:52 - interface - INFO - Suggested tables for query 'stores in India': ['sales.stores', 'sales.orders', 'sales.customers', 'sales.order_items', 'sales.staffs'], confidence: 10.6534678125
+2025-04-26 16:44:52 - interface - DEBUG - Handling feedback for query: stores in India
+2025-04-26 16:44:55 - interface - INFO - User rejected tables for query 'stores in India': ['sales.stores', 'sales.orders', 'sales.customers', 'sales.order_items', 'sales.staffs']
+2025-04-26 16:44:55 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-26 16:45:00 - interface - DEBUG - Selected manual tables: ['sales.stores']
+2025-04-26 16:45:00 - interface - INFO - Updated feedback with tables: ['sales.stores']
+2025-04-26 16:45:00 - analyzer - DEBUG - Validated tables: Valid=['sales.stores'], Invalid=[]
+2025-04-26 16:45:00 - analyzer - DEBUG - All tables: ['production.categories', 'production.brands', 'production.products', 'production.stocks', 'sales.customers', 'sales.stores', 'sales.staffs', 'sales.orders', 'sales.order_items', 'hr.candidates', 'hr.employees']
+2025-04-26 16:45:00 - table_identifier - DEBUG - Increased weight for sales.stores to 3.1023118749999985
+2025-04-26 16:45:00 - table_identifier - DEBUG - Decreased weight for sales.customers to 0.5
+2025-04-26 16:45:00 - table_identifier - DEBUG - Decreased weight for sales.orders to 0.68
+2025-04-26 16:45:00 - table_identifier - DEBUG - Decreased weight for hr.candidates to 0.5
+2025-04-26 16:45:00 - table_identifier - DEBUG - Decreased weight for hr.employees to 0.5
+2025-04-26 16:45:00 - table_identifier - DEBUG - Decreased weight for sales.order_items to 0.5
+2025-04-26 16:45:00 - table_identifier - DEBUG - Decreased weight for sales.staffs to 0.5
+2025-04-26 16:45:00 - table_identifier - DEBUG - Decreased weight for production.products to 0.5
+2025-04-26 16:45:00 - table_identifier - DEBUG - Decreased weight for production.stocks to 0.5
+2025-04-26 16:45:00 - table_identifier - DEBUG - Decreased weight for production.brands to 0.5
+2025-04-26 16:45:00 - table_identifier - DEBUG - Decreased weight for production.categories to 0.5
+2025-04-26 16:45:00 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-26 16:45:00 - table_identifier - DEBUG - Updating name matches for query: stores in India
+2025-04-26 16:45:00 - name_match_manager - DEBUG - Updating synonyms for query: stores in India, tables: ['sales.stores']
+2025-04-26 16:45:00 - name_match_manager - DEBUG - Saved synonyms to app-config/BikeStores/BikeStores_synonyms.json
+2025-04-26 16:45:00 - name_match_manager - DEBUG - Saved matches to Redis for BikeStores
+2025-04-26 16:45:00 - name_match_manager - DEBUG - Updated synonyms for query: stores in india, terms: ['store', 'india'], tables: ['sales.stores']
+2025-04-26 16:45:00 - table_identifier - DEBUG - Saved name matches to Redis for BikeStores
+2025-04-26 16:45:00 - patterns - DEBUG - Updated patterns and entities in Redis for BikeStores
+2025-04-26 16:45:00 - analyzer - INFO - Updated feedback for query: stores in India
+2025-04-26 16:47:29 - interface - DEBUG - Exiting query mode
+2025-04-26 16:47:32 - interface - INFO - Exiting application
+2025-04-26 16:47:32 - table_identifier - DEBUG - Saved weights to Redis for BikeStores
+2025-04-26 16:47:32 - table_identifier - DEBUG - Saved model to models/BikeStores_model.json
+2025-04-26 16:47:32 - connection - INFO - Closing database connection
+2025-04-26 16:47:32 - analyzer - INFO - Application shutdown

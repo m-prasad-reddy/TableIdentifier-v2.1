@@ -197,4 +197,4 @@ class NameMatchManager:
             self.redis_client.set(f"{self.db_name}:name_matches", json.dumps(self.matches))
             self.logger.debug(f"Saved matches to Redis for {self.db_name}")
         except redis.RedisError as e:
-            self.logger.error(f"Redis error saving matches: {e}")
+            self.logger.error(f"Redis error saving matches: {e}")   

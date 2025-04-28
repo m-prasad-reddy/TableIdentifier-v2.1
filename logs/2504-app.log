@@ -1,7 +1,3 @@
-console log:
-
-app.log:
-
 2025-04-25 21:36:32 - analyzer - DEBUG - Initialized DatabaseAnalyzer with SpaCy
 2025-04-25 21:36:33 - interface - DEBUG - Initialized DatabaseAnalyzerCLI
 2025-04-25 21:36:33 - interface - INFO - Starting Database Schema Analyzer

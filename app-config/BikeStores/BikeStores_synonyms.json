@@ -161,5 +161,9 @@
     "category",
     "brand",
     "name"
+  ],
+  "sales.orders": [
+    "store",
+    "usa"
   ]
 }
